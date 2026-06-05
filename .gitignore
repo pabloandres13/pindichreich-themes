@@ -35,6 +35,9 @@ wp-config.php
 # htaccess
 /.htaccess
 
+# Local environment (contains DB credentials)
+.env
+
 # All plugins
 #
 # Note: If you wish to whitelist plugins,
@@ -46,3 +49,5 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+
+claude-last-run.txt

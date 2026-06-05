@@ -1,0 +1,483 @@
+:root {
+	--taa-ink: #16364d;
+	--taa-ink-soft: #49657b;
+	--taa-accent: #0f6a83;
+	--taa-accent-deep: #0d4e6a;
+	--taa-sand: #f6efe5;
+	--taa-mist: #eef5f7;
+	--taa-white: #ffffff;
+	--taa-border: rgba(22, 54, 77, 0.12);
+	--taa-shadow: 0 18px 48px rgba(18, 46, 67, 0.08);
+	--taa-serif: "Cormorant Garamond", "Times New Roman", serif;
+	--taa-sans: "Manrope", "Segoe UI", sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: var(--taa-ink);
+	font-family: var(--taa-sans);
+}
+
+body {
+	background: linear-gradient(180deg, #fcfdfd 0%, #f7fafb 100%);
+}
+
+#page {
+	overflow: clip;
+}
+
+.taa-site-shell {
+	min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-title,
+.taa-hero__title,
+.taa-archive-hero__title,
+.taa-single-hero__title,
+.taa-page-header__title {
+	font-family: var(--taa-serif);
+	font-weight: 600;
+	letter-spacing: 0.01em;
+}
+
+p,
+li {
+	color: var(--taa-ink-soft);
+}
+
+a {
+	color: var(--taa-accent);
+}
+
+a:hover,
+a:focus {
+	color: var(--taa-accent-deep);
+}
+
+.taa-site-header {
+	left: 0;
+	padding: 1.1rem 1.5rem 0;
+	position: sticky;
+	right: 0;
+	top: 0;
+	z-index: 100;
+}
+
+.taa-site-header__bar {
+	background: rgba(255, 255, 255, 0.82);
+	backdrop-filter: blur(18px);
+	border: 1px solid rgba(18, 56, 76, 0.08);
+	border-radius: 999px;
+	box-shadow: 0 18px 40px rgba(15, 53, 87, 0.08);
+	margin: 0 auto;
+	max-width: 1240px;
+}
+
+.taa-site-header__inner {
+	align-items: center;
+	display: flex;
+	gap: 2rem;
+	justify-content: space-between;
+	margin: 0 auto;
+	max-width: 1180px;
+	padding: 0.9rem 1.6rem;
+}
+
+.taa-site-header__brand {
+	align-items: center;
+	display: flex;
+	flex: 0 1 auto;
+	gap: 1rem;
+	min-width: 0;
+}
+
+.taa-site-header__brand .custom-logo-link {
+	display: block;
+	flex: 0 0 auto;
+}
+
+.taa-site-header__brand .custom-logo-link img {
+	display: block;
+	max-height: 58px;
+	width: auto;
+}
+
+.taa-site-header__identity {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.taa-site-header__title {
+	color: var(--taa-ink);
+	font-family: var(--taa-serif);
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.taa-site-header__tagline {
+	color: #6a8193;
+	font-size: 0.82rem;
+	margin: 0;
+}
+
+.taa-site-header__nav {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	position: relative;
+}
+
+.taa-primary-menu {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem 0.9rem;
+	justify-content: flex-end;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.taa-menu-toggle {
+	align-items: center;
+	background: transparent;
+	border: 0;
+	color: var(--taa-ink);
+	display: none;
+	height: 44px;
+	justify-content: center;
+	padding: 0;
+	position: relative;
+	width: 44px;
+}
+
+.taa-menu-toggle__bar {
+	background: currentColor;
+	border-radius: 999px;
+	display: block;
+	height: 2px;
+	left: 10px;
+	position: absolute;
+	transition: transform 180ms ease, opacity 180ms ease;
+	width: 24px;
+}
+
+.taa-menu-toggle__bar:nth-child(2) {
+	transform: translateY(-7px);
+}
+
+.taa-menu-toggle__bar:nth-child(4) {
+	transform: translateY(7px);
+}
+
+.taa-menu-toggle[aria-expanded="true"] .taa-menu-toggle__bar:nth-child(2) {
+	transform: rotate(45deg);
+}
+
+.taa-menu-toggle[aria-expanded="true"] .taa-menu-toggle__bar:nth-child(3) {
+	opacity: 0;
+}
+
+.taa-menu-toggle[aria-expanded="true"] .taa-menu-toggle__bar:nth-child(4) {
+	transform: rotate(-45deg);
+}
+
+.taa-primary-menu a {
+	color: var(--taa-ink);
+	display: inline-flex;
+	font-size: 0.95rem;
+	font-weight: 700;
+	padding: 0.55rem 0.8rem;
+	text-decoration: none;
+}
+
+.taa-primary-menu .current-menu-item > a,
+.taa-primary-menu a:hover,
+.taa-primary-menu a:focus {
+	color: var(--taa-accent);
+}
+
+.taa-primary-menu .menu-item-has-children {
+	position: relative;
+}
+
+.taa-primary-menu .sub-menu {
+	background: #fff;
+	border: 1px solid rgba(18, 56, 76, 0.08);
+	border-radius: 1rem;
+	box-shadow: 0 20px 40px rgba(15, 53, 87, 0.1);
+	display: none;
+	list-style: none;
+	margin: 0;
+	min-width: 220px;
+	padding: 0.65rem;
+	position: absolute;
+	right: 0;
+	top: calc(100% + 0.35rem);
+}
+
+.taa-primary-menu .menu-item-has-children:hover > .sub-menu,
+.taa-primary-menu .menu-item-has-children:focus-within > .sub-menu {
+	display: block;
+}
+
+.taa-primary-menu .sub-menu a {
+	display: block;
+	font-size: 0.9rem;
+	padding: 0.55rem 0.7rem;
+}
+
+.ast-menu-toggle {
+	color: var(--taa-ink);
+}
+
+.taa-post-card,
+.taa-single-post__media img {
+	box-shadow: var(--taa-shadow);
+}
+
+.taa-front-page-content h2,
+.taa-front-page-content h3 {
+	color: var(--taa-ink);
+}
+
+.taa-front-page-content .wp-block-button__link {
+	background: var(--taa-accent);
+	border-radius: 999px;
+	padding: 0.95rem 1.5rem;
+}
+
+.taa-front-page-content .wp-block-button__link:hover,
+.taa-front-page-content .wp-block-button__link:focus {
+	background: var(--taa-accent-deep);
+}
+
+.taa-site-footer {
+	background:
+		radial-gradient(circle at top right, rgba(198, 225, 233, 0.15), transparent 32%),
+		linear-gradient(180deg, #10354a 0%, #0a2231 100%);
+	color: rgba(255, 255, 255, 0.82);
+	padding: 2.4rem 0 1.1rem;
+}
+
+.taa-button {
+	align-items: center;
+	border-radius: 999px;
+	display: inline-flex;
+	font-size: 0.95rem;
+	font-weight: 700;
+	justify-content: center;
+	min-height: 3rem;
+	padding: 0.8rem 1.3rem;
+	text-decoration: none;
+}
+
+.taa-button--primary {
+	background: var(--taa-white);
+	color: var(--taa-ink);
+}
+
+.taa-button--ghost {
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	color: var(--taa-white);
+}
+
+.taa-button--ghost:hover,
+.taa-button--ghost:focus {
+	color: var(--taa-white);
+}
+
+.taa-site-footer a,
+.taa-site-footer .widget,
+.taa-site-footer .widget-title {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.taa-site-footer__top {
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.9fr);
+	padding-bottom: 1.25rem;
+}
+
+.taa-site-footer__brand .custom-logo-link img {
+	max-height: 56px;
+	width: auto;
+}
+
+.taa-site-footer__title {
+	color: var(--taa-white);
+	font-family: var(--taa-serif);
+	font-size: 1.5rem;
+	text-decoration: none;
+}
+
+.taa-site-footer__tagline {
+	color: rgba(255, 255, 255, 0.72);
+	font-size: 0.92rem;
+	margin-top: 0.55rem;
+	max-width: 28rem;
+}
+
+.taa-site-footer__widgets {
+	display: grid;
+	gap: 1.1rem;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.taa-footer-widget__title {
+	font-size: 1rem;
+	margin-bottom: 0.55rem;
+}
+
+.taa-site-footer__column ul,
+.taa-site-footer__menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.taa-site-footer__column li {
+	margin-bottom: 0.3rem;
+}
+
+.taa-site-footer__bottom {
+	align-items: center;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.7rem 1.4rem;
+	justify-content: space-between;
+	padding-top: 0.9rem;
+}
+
+.taa-site-footer__menu {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem 0.9rem;
+}
+
+.taa-site-footer__menu a,
+.taa-site-footer__column a {
+	font-size: 0.94rem;
+}
+
+.taa-site-footer__copyright {
+	color: rgba(255, 255, 255, 0.62);
+	font-size: 0.9rem;
+	margin: 0;
+}
+
+.widget {
+	margin: 0;
+}
+
+.widget ul {
+	list-style: none;
+	margin-left: 0;
+}
+
+@media (max-width: 921px) {
+	.taa-site-header {
+		padding: 0.75rem 0.75rem 0;
+	}
+
+	.taa-site-header__bar {
+		border-radius: 1.4rem;
+	}
+
+	.taa-site-header__inner {
+		gap: 1rem;
+	}
+
+	.taa-site-header__nav {
+		flex: 0 0 auto;
+	}
+
+	.taa-menu-toggle {
+		display: inline-flex;
+	}
+
+	.taa-primary-menu {
+		background: rgba(255, 255, 255, 0.97);
+		border: 1px solid rgba(18, 56, 76, 0.08);
+		border-radius: 1.1rem;
+		box-shadow: 0 20px 40px rgba(15, 53, 87, 0.12);
+		display: none;
+		flex-direction: column;
+		gap: 0;
+		min-width: min(320px, calc(100vw - 2rem));
+		padding: 0.65rem;
+		position: absolute;
+		right: 0;
+		top: calc(100% + 0.8rem);
+		z-index: 20;
+	}
+
+	.taa-primary-menu.is-open {
+		display: flex;
+	}
+
+	.taa-primary-menu a {
+		font-size: 0.95rem;
+		padding: 0.75rem 0.9rem;
+		width: 100%;
+	}
+
+	.taa-site-header__identity {
+		display: none;
+	}
+
+	.taa-site-header__brand .custom-logo-link img {
+		max-height: 48px;
+	}
+
+	.taa-site-footer__top,
+	.taa-site-footer__widgets {
+		grid-template-columns: 1fr;
+	}
+
+	.taa-site-footer {
+		padding-top: 2rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.taa-site-header {
+		padding: 0.55rem 0.55rem 0;
+	}
+
+	.taa-site-header__bar {
+		border-radius: 1.1rem;
+	}
+
+	.taa-site-header__inner {
+		padding: 0.75rem 0.9rem;
+	}
+
+	.taa-primary-menu {
+		min-width: calc(100vw - 1.1rem);
+		right: -0.9rem;
+	}
+
+	.taa-primary-menu .menu-item-has-children .sub-menu {
+		display: block;
+		margin-top: 0.25rem;
+		min-width: 0;
+		position: static;
+	}
+}

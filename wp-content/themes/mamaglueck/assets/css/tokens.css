@@ -1,0 +1,161 @@
+/* ============================================================
+   Mamaglück — Design Tokens
+   Colors + Typography + Spacing + Radii + Shadows + Motion
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&display=swap');
+
+:root {
+  /* ---- Brand palette (raw) ---- */
+  --coral:        #FF7A59;
+  --coral-deep:   #F2603C;
+  --teal:         #54B7A6;
+  --teal-deep:    #3E9E8E;
+  --yellow:       #FFC247;
+  --yellow-deep:  #F2AE2A;
+  --ink:          #2B2A3D;
+  --ink-soft:     #5C5B6E;
+  --ink-faint:    #93919F;
+  --cream:        #FFF8F2;
+  --blush:        #FFE6DC;
+  --blush-deep:   #FFD3C4;
+  --teal-tint:    #E4F4F1;
+  --yellow-tint:  #FFF1D6;
+  --white:        #FFFFFF;
+  --line:         #F0E6DD;
+
+  /* ---- Semantic color roles ---- */
+  --bg:            var(--cream);
+  --bg-alt:        var(--blush);
+  --surface:       var(--white);
+  --text:          var(--ink);
+  --text-muted:    var(--ink-soft);
+  --text-faint:    var(--ink-faint);
+  --primary:       var(--coral);
+  --primary-hover: var(--coral-deep);
+  --on-primary:    #FFFFFF;
+  --focus-ring:    #FF7A59;
+
+  /* ---- Type families ---- */
+  --font-display: 'Fredoka', 'Baloo 2', 'Quicksand', system-ui, sans-serif;
+  --font-body:    'Nunito', 'Mulish', system-ui, -apple-system, sans-serif;
+  --font-script:  'Caveat', 'Segoe Script', cursive;
+
+  /* ---- Type scale (fluid, clamp-based) ---- */
+  --fs-display: clamp(2.5rem, 1.7rem + 3.4vw, 3.9rem);
+  --fs-h1:      clamp(2.1rem, 1.5rem + 2.6vw, 3.25rem);
+  --fs-h2:      clamp(1.7rem, 1.3rem + 1.7vw, 2.5rem);
+  --fs-h3:      clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem);
+  --fs-lead:    clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  --fs-body:    1.0625rem;
+  --fs-small:   0.9375rem;
+  --fs-label:   0.8125rem;
+
+  --lh-tight:   1.08;
+  --lh-snug:    1.2;
+  --lh-body:    1.65;
+
+  --ls-tight:   -0.02em;
+  --ls-label:    0.06em;
+
+  /* ---- Spacing scale (8px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-y: clamp(3.5rem, 2rem + 6vw, 6.5rem);
+  --container: 1200px;
+  --gutter: clamp(1.25rem, 0.5rem + 3vw, 2.5rem);
+
+  /* ---- Corner radii ---- */
+  --r-sm:   10px;
+  --r-md:   16px;
+  --r-lg:   22px;
+  --r-xl:   32px;
+  --r-2xl:  44px;
+  --r-pill: 999px;
+
+  /* ---- Shadows (soft, diffuse, warm) ---- */
+  --shadow-xs:    0 1px 2px rgba(43, 42, 61, 0.06);
+  --shadow-sm:    0 4px 14px rgba(43, 42, 61, 0.06);
+  --shadow-md:    0 12px 30px rgba(43, 42, 61, 0.08);
+  --shadow-lg:    0 22px 50px rgba(43, 42, 61, 0.12);
+  --shadow-coral: 0 14px 28px rgba(255, 122, 89, 0.28);
+
+  /* ---- Motion ---- */
+  --ease-out:  cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:  140ms;
+  --dur:       260ms;
+  --dur-slow:  480ms;
+  --float:     7s;
+}
+
+/* ============================================================
+   Base element styling
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+/* Override the Astra CSS variable used for the body/container background.
+   Since our CSS loads after Astra's, this declaration wins in the cascade
+   (custom properties have no !important, so cascade order decides). */
+:root {
+  --ast-global-color-5: #F0F5FA; /* was #F0F5FA (Astra blue-grey) */
+}
+
+body,
+body.ast-separate-container,
+body.ast-plain-container,
+body.ast-page-builder-template {
+  margin: 0;
+  /* Raw hex avoids any var() resolution ambiguity */
+  background-color: #F0F5FA !important; /* --cream */
+  background-image: none !important;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--text);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 600; line-height: var(--lh-tight); }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+p  { margin: 0; text-wrap: pretty; }
+a  { color: inherit; text-decoration: none; }
+
+.display   { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-display); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); }
+.lead      { font-size: var(--fs-lead); color: var(--text-muted); font-weight: 500; }
+.eyebrow   { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-label); letter-spacing: var(--ls-label); text-transform: uppercase; }
+.signature { font-family: var(--font-script); font-weight: 600; }
+.muted     { color: var(--text-muted); }
+
+/* Hide Astra header/footer elements that we fully replace */
+#masthead, #colophon { display: none !important; }
+#main { padding: 0 !important; margin: 0 !important; }
+.ast-container { max-width: none !important; padding: 0 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,420 @@
+.taa-front-page-content {
+	padding: 0;
+}
+
+.taa-homepage-section,
+.taa-homepage-hero {
+	margin: 0;
+	padding: 5.5rem 0;
+}
+
+.taa-homepage-hero {
+	background:
+		radial-gradient(circle at right bottom, rgba(117, 195, 215, 0.2), transparent 24%),
+		linear-gradient(135deg, rgba(25, 53, 95, 0.96) 0%, rgba(23, 63, 100, 0.94) 52%, rgba(15, 106, 131, 0.92) 100%);
+	background-color: #17395f;
+	color: #fff;
+	min-height: 74vh;
+	padding-bottom: 5.2rem;
+	padding-top: 7.2rem;
+	position: relative;
+}
+
+.taa-homepage-hero.has-background {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.taa-homepage-hero::before {
+	background: linear-gradient(180deg, rgba(13, 32, 50, 0.2), rgba(13, 32, 50, 0.45));
+	content: "";
+	inset: 0;
+	position: absolute;
+}
+
+.taa-homepage-hero > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1120px;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	position: relative;
+	z-index: 1;
+}
+
+.taa-homepage-hero__title {
+	color: #fff;
+	font-size: clamp(2.8rem, 5.8vw, 5rem);
+	line-height: 0.98;
+	margin-bottom: 1rem;
+}
+
+.taa-homepage-hero__lead {
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 1.08rem;
+	line-height: 1.75;
+	max-width: 40rem;
+}
+
+.taa-homepage-hero__lead,
+.taa-homepage-hero__links {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.taa-homepage-hero__links {
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+.taa-homepage-hero__links a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.taa-surface-white {
+	background: rgba(255, 255, 255, 0.82);
+}
+
+.taa-surface-grey {
+	background: rgba(247, 250, 251, 0.9);
+}
+
+.taa-surface-blue {
+	background-color: rgba(235, 244, 248, 0.88);
+}
+
+.taa-homepage-section > * {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1280px;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+
+.taa-block-eyebrow {
+	color: #0f6a83;
+	font-size: 0.85rem;
+	font-weight: 800;
+	letter-spacing: 0.18em;
+	margin-bottom: 0.9rem;
+	text-transform: uppercase;
+}
+
+.taa-homepage-section h2 {
+	color: #15324b;
+	font-size: clamp(2rem, 3.8vw, 3.4rem);
+	line-height: 1.02;
+	margin-bottom: 1rem;
+}
+
+.taa-homepage-section h3 {
+	color: #1d3854;
+	font-size: clamp(1.35rem, 1.7vw, 1.9rem);
+	line-height: 1.08;
+}
+
+.taa-homepage-section p {
+	color: #577084;
+	line-height: 1.8;
+}
+
+.taa-section-intro {
+	font-size: 1.04rem;
+	max-width: 42rem;
+}
+
+.taa-welcome-split,
+.taa-hotel-layout {
+	align-items: center;
+	gap: 2.5rem;
+}
+
+.taa-homepage-section .wp-block-columns {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.taa-editorial-image img {
+	border-radius: 1.75rem;
+	display: block;
+}
+
+.taa-island-grid {
+	gap: 1.5rem;
+	margin-top: 2rem;
+}
+
+.taa-island-grid .wp-block-column {
+	background: rgba(255, 255, 255, 0.74);
+	border-radius: 1.5rem;
+	overflow: hidden;
+	padding-bottom: 1.4rem;
+}
+
+.taa-island-grid .wp-block-image {
+	margin-bottom: 1rem;
+}
+
+.taa-island-grid h3,
+.taa-island-grid p {
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+
+.taa-circle-grid {
+	gap: 1.25rem;
+	margin-top: 2rem;
+}
+
+.taa-circle-card {
+	align-items: center;
+	aspect-ratio: 1 / 1;
+	background: rgba(255, 255, 255, 0.78);
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+	max-width: 220px;
+	padding: 1.4rem;
+	text-align: center;
+}
+
+.taa-circle-card h3 {
+	font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+}
+
+.taa-circle-card p {
+	font-size: 0.92rem;
+	line-height: 1.55;
+	margin: 0;
+}
+
+.taa-post-box {
+	background: rgba(255, 255, 255, 0.82);
+	border-radius: 2rem;
+	padding: 1.5rem;
+}
+
+.taa-shortcode-post-list {
+	display: grid;
+	gap: 1rem;
+}
+
+.taa-shortcode-post-list__item {
+	align-items: center;
+	display: grid;
+	gap: 0.85rem;
+	grid-template-columns: 86px minmax(0, 1fr);
+}
+
+.taa-shortcode-post-list__image img {
+	border-radius: 1rem;
+	display: block;
+	height: 86px;
+	object-fit: cover;
+	width: 86px;
+}
+
+.taa-shortcode-post-list__meta {
+	color: #0f6a83;
+	font-size: 0.8rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	margin-bottom: 0.35rem;
+	text-transform: uppercase;
+}
+
+.taa-shortcode-post-list__title {
+	font-size: 1.02rem;
+	line-height: 1.2;
+	margin: 0;
+}
+
+.taa-shortcode-post-list__title a {
+	color: #15324b;
+	text-decoration: none;
+}
+
+.taa-post-carousel {
+	margin-top: 2rem;
+	overflow-x: auto;
+	padding-bottom: 1rem;
+}
+
+.taa-post-carousel__track {
+	display: flex;
+	gap: 1.25rem;
+	width: max-content;
+}
+
+.taa-post-carousel.is-animated {
+	overflow: hidden;
+}
+
+.taa-post-carousel.is-animated .taa-post-carousel__track {
+	animation: taa-carousel-scroll 42s linear infinite;
+	will-change: transform;
+}
+
+.taa-post-carousel.is-animated:hover .taa-post-carousel__track,
+.taa-post-carousel.is-animated:focus-within .taa-post-carousel__track {
+	animation-play-state: paused;
+}
+
+@keyframes taa-carousel-scroll {
+	from {
+		transform: translateX(0);
+	}
+
+	to {
+		transform: translateX(calc(-50% - 0.625rem));
+	}
+}
+
+.taa-post-carousel__card {
+	background: rgba(255, 255, 255, 0.84);
+	border-radius: 1.5rem;
+	flex: 0 0 360px;
+	overflow: hidden;
+}
+
+.taa-post-carousel__image {
+	display: block;
+}
+
+.taa-post-carousel__image img {
+	aspect-ratio: 4 / 3;
+	display: block;
+	height: auto;
+	object-fit: cover;
+	width: 100%;
+}
+
+.taa-post-carousel__body {
+	padding: 1.2rem;
+}
+
+.taa-post-carousel__meta {
+	color: #0f6a83;
+	font-size: 0.78rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	margin-bottom: 0.45rem;
+	text-transform: uppercase;
+}
+
+.taa-post-carousel__title {
+	font-size: 1.05rem;
+	line-height: 1.22;
+	margin: 0;
+}
+
+.taa-post-carousel__title a {
+	color: #15324b;
+	text-decoration: none;
+}
+
+@media (max-width: 921px) {
+	.taa-homepage-hero {
+		min-height: 65vh;
+		padding-bottom: 4rem;
+		padding-top: 6.2rem;
+	}
+
+	.taa-homepage-section,
+	.taa-homepage-hero {
+		padding-bottom: 4rem;
+		padding-top: 4rem;
+	}
+
+	.taa-homepage-section h2 {
+		max-width: none;
+	}
+
+	.taa-homepage-hero > *,
+	.taa-homepage-section > * {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	.taa-circle-card {
+		max-width: 240px;
+	}
+
+	.taa-shortcode-post-list__item {
+		grid-template-columns: 72px minmax(0, 1fr);
+	}
+
+	.taa-shortcode-post-list__image img {
+		height: 72px;
+		width: 72px;
+	}
+
+	.taa-post-carousel__card {
+		flex-basis: 300px;
+	}
+}
+
+@media (max-width: 640px) {
+	.taa-homepage-hero {
+		min-height: auto;
+		padding-bottom: 3.5rem;
+		padding-top: 6.2rem;
+	}
+
+	.taa-homepage-hero__title {
+		font-size: clamp(2.2rem, 11vw, 3.3rem);
+		line-height: 1;
+	}
+
+	.taa-homepage-hero__lead {
+		font-size: 0.98rem;
+		line-height: 1.7;
+	}
+
+	.taa-homepage-section,
+	.taa-homepage-hero {
+		padding-bottom: 3.25rem;
+		padding-top: 3.25rem;
+	}
+
+	.taa-homepage-hero {
+		padding-top: 6.2rem;
+	}
+
+	.taa-homepage-section h2 {
+		font-size: clamp(1.75rem, 8vw, 2.4rem);
+		line-height: 1.06;
+	}
+
+	.taa-homepage-section h3 {
+		font-size: 1.25rem;
+	}
+
+	.taa-circle-card {
+		max-width: 200px;
+		padding: 1rem;
+	}
+
+	.taa-post-box {
+		border-radius: 1.4rem;
+		padding: 1.15rem;
+	}
+
+	.taa-post-carousel__card {
+		flex-basis: 84vw;
+	}
+
+	.taa-post-carousel__body {
+		padding: 1rem;
+	}
+
+	.taa-shortcode-post-list {
+		gap: 0.8rem;
+	}
+}

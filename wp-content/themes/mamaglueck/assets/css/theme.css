@@ -1,0 +1,689 @@
+/* ============================================================
+   Mamaglück — Component & Layout Styles
+   Depends on tokens.css for custom properties.
+   ============================================================ */
+
+/* ---------- Layout primitives ---------- */
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.section { padding-block: var(--section-y); position: relative; }
+.section--blush { background: var(--bg-alt); }
+.section--teal  { background: var(--teal-tint); }
+.section-head { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-7); }
+.section-head .eyebrow { color: var(--coral); }
+.section-head h2 { max-width: 18ch; }
+.section-head p { max-width: 56ch; color: var(--text-muted); }
+.center { text-align: center; align-items: center; }
+.center p, .center h2 { margin-inline: auto; }
+
+/* ---------- Buttons (pill) ---------- */
+.btn {
+  --_bg: var(--primary); --_fg: var(--on-primary); --_bd: transparent;
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-display); font-weight: 500; font-size: 1.0625rem;
+  padding: 0.78em 1.5em; border-radius: var(--r-pill);
+  background: var(--_bg); color: var(--_fg); border: 2px solid var(--_bd);
+  cursor: pointer; line-height: 1; white-space: nowrap;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
+}
+.btn svg { width: 1.15em; height: 1.15em; }
+.btn--primary { box-shadow: var(--shadow-coral); }
+.btn--primary:hover { background: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 18px 34px rgba(255,122,89,0.34); }
+.btn--primary:active { transform: translateY(0) scale(0.985); }
+.btn--ghost { --_bg: transparent; --_fg: var(--ink); --_bd: var(--blush-deep); }
+.btn--ghost:hover { --_bd: var(--coral); --_fg: var(--coral-deep); transform: translateY(-2px); background: var(--white); }
+.btn--ghost:active { transform: translateY(0) scale(0.985); }
+.btn--yellow { --_bg: var(--yellow); --_fg: var(--ink); box-shadow: 0 14px 28px rgba(255,194,71,0.34); }
+.btn--yellow:hover { --_bg: var(--yellow-deep); transform: translateY(-2px); }
+.btn--white { --_bg: var(--white); --_fg: var(--coral-deep); }
+.btn--white:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn--sm { padding: 0.6em 1.15em; font-size: 0.95rem; }
+
+/* ---------- Category pill / badge ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-family: var(--font-display); font-weight: 500;
+  font-size: var(--fs-label); letter-spacing: 0.02em;
+  padding: 0.36em 0.85em; border-radius: var(--r-pill);
+  background: var(--blush); color: var(--coral-deep);
+}
+.pill--teal   { background: var(--teal-tint);  color: var(--teal-deep); }
+.pill--yellow { background: var(--yellow-tint); color: var(--yellow-deep); }
+.pill--coral  { background: var(--blush);       color: var(--coral-deep); }
+
+/* ---------- Decorative shapes ---------- */
+.deco { position: absolute; pointer-events: none; z-index: 0; }
+.dot  { border-radius: var(--r-pill); }
+.float       { animation: float var(--float) var(--ease-soft) infinite; }
+.float--slow { animation-duration: 11s; }
+.float--rev  { animation-direction: alternate-reverse; }
+@keyframes float {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-14px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--surface); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm); overflow: hidden;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+/* ---------- Photo placeholder ---------- */
+.photo {
+  position: relative; display: block; width: 100%;
+  background:
+    radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.5), transparent 50%),
+    linear-gradient(135deg, var(--blush-deep), var(--blush));
+  background-color: var(--blush);
+  overflow: hidden;
+}
+.photo[data-tint="teal"]   { background: radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.5), transparent 50%), linear-gradient(135deg, #BCE4DC, var(--teal-tint)); }
+.photo[data-tint="yellow"] { background: radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.55), transparent 50%), linear-gradient(135deg, #FFE2A6, var(--yellow-tint)); }
+.photo[data-tint="coral"]  { background: radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.5), transparent 50%), linear-gradient(135deg, #FFC4B2, var(--blush)); }
+.photo .photo__label {
+  position: absolute; inset: auto auto 12px 12px;
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-family: var(--font-display); font-size: 0.75rem; font-weight: 500;
+  color: rgba(43,42,61,0.5); background: rgba(255,255,255,0.6);
+  padding: 0.3em 0.7em; border-radius: var(--r-pill); backdrop-filter: blur(2px);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  background: color-mix(in srgb, var(--cream) 88%, transparent);
+  backdrop-filter: blur(10px);
+  transition: box-shadow var(--dur) var(--ease-out), background var(--dur) var(--ease-out);
+}
+.site-header.is-scrolled { box-shadow: var(--shadow-sm); background: color-mix(in srgb, var(--cream) 96%, transparent); }
+.nav { display: flex; align-items: center; gap: var(--space-5); height: 78px; }
+.brand { display: inline-flex; align-items: center; gap: 0.55em; font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--ink); flex-shrink: 0; }
+.brand img { height: 44px; width: auto; }
+.brand .brand__mark {
+  width: 38px; height: 38px; border-radius: 13px; flex: none;
+  display: grid; place-items: center; color: #fff; font-size: 1.15rem;
+  background: linear-gradient(135deg, var(--coral), var(--yellow));
+  box-shadow: var(--shadow-coral); transform: rotate(-6deg);
+}
+.brand .brand__mark span { transform: rotate(6deg); display: block; }
+.nav__links { display: flex; align-items: center; gap: var(--space-2); margin-left: auto; list-style: none; padding: 0; margin-block: 0; }
+.nav__links a { font-family: var(--font-display); font-weight: 500; font-size: 1.02rem; color: var(--ink); padding: 0.5em 0.85em; border-radius: var(--r-pill); white-space: nowrap; transition: color var(--dur), background var(--dur); }
+.nav__links a:hover,
+.nav__links a[aria-current="page"] { color: var(--coral-deep); background: var(--blush); }
+.nav__cta { margin-left: var(--space-3); }
+.nav__toggle { display: none; margin-left: auto; background: var(--white); border: 1px solid var(--line); width: 46px; height: 46px; border-radius: var(--r-md); place-items: center; cursor: pointer; box-shadow: var(--shadow-xs); }
+.nav__toggle svg { width: 24px; height: 24px; color: var(--ink); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero { position: relative; overflow: hidden; padding-block: clamp(2.5rem, 1rem + 5vw, 5rem) var(--section-y); }
+.hero__grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
+.hero__eyebrow { color: var(--teal-deep); display: inline-flex; align-items: center; gap: 0.5em; margin-bottom: var(--space-4); }
+.hero__eyebrow::before { content: ""; width: 26px; height: 3px; border-radius: 3px; background: var(--teal); }
+.hero h1.hero__title { font-size: var(--fs-display); line-height: var(--lh-tight); max-width: 15ch; text-wrap: pretty; }
+.hero h1 .accent { color: var(--coral); }
+.hero__sub { margin-top: var(--space-5); max-width: 46ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+.hero__stats { display: flex; gap: var(--space-6); margin-top: var(--space-7); }
+.hero__stat { display: flex; flex-direction: column; }
+.hero__stat b { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; color: var(--ink); }
+.hero__stat span { font-size: var(--fs-small); color: var(--text-muted); }
+/* hero__copy must be positioned so its z-index beats the halo (z-index:1),
+   which is absolute and bleeds slightly left with negative inset. */
+.hero__copy { position: relative; z-index: 3; }
+
+.hero__media { position: relative; z-index: 2; justify-self: center; width: 100%; max-width: 480px; }
+.hero__blob {
+  position: relative; aspect-ratio: 1 / 1.05; z-index: 2;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  box-shadow: var(--shadow-lg); overflow: hidden;
+}
+.hero__blob .photo,
+.hero__blob img { width: 100%; height: 100%; object-fit: cover; }
+.hero__halo {
+  position: absolute; inset: -8% -10% -6% -3%; z-index: 1;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  background: var(--yellow-tint);
+}
+.hero__badge {
+  position: absolute; z-index: 3; background: var(--white);
+  border-radius: var(--r-lg); padding: 0.85em 1.1em; box-shadow: var(--shadow-md);
+  display: flex; align-items: center; gap: 0.7em;
+  font-family: var(--font-display); font-weight: 500;
+}
+.hero__badge svg { width: 22px; height: 22px; }
+.hero__badge--tl { top: 4%; left: -6%; color: var(--teal-deep); }
+.hero__badge--br { bottom: 8%; right: -5%; color: var(--coral-deep); }
+
+/* ============================================================
+   INTRO STRIP
+   ============================================================ */
+.intro { background: var(--bg-alt); }
+.intro__grid { display: grid; grid-template-columns: auto 1fr; gap: clamp(1.5rem, 1rem + 3vw, 3.5rem); align-items: center; }
+.intro__portrait { width: clamp(120px, 12vw, 168px); aspect-ratio: 1; border-radius: var(--r-pill); overflow: hidden; box-shadow: var(--shadow-md); border: 5px solid var(--white); }
+.intro__portrait .photo,
+.intro__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.intro__body h2 { margin-bottom: var(--space-3); }
+.intro__body p { color: var(--text-muted); max-width: 60ch; }
+.intro__sign { font-family: var(--font-script); font-weight: 700; font-size: 2.1rem; color: var(--coral); margin-top: var(--space-4); display: inline-block; }
+
+/* ============================================================
+   TOPIC CATEGORIES
+   ============================================================ */
+.topics { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-4); }
+.topic {
+  position: relative; background: var(--surface); border-radius: var(--r-lg);
+  padding: var(--space-6) var(--space-4) var(--space-5); text-align: center;
+  box-shadow: var(--shadow-sm); overflow: hidden; display: block;
+  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out);
+}
+.topic::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 7px; background: var(--_accent, var(--coral)); }
+.topic:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.topic__icon {
+  width: 62px; height: 62px; border-radius: var(--r-md); margin: var(--space-2) auto var(--space-4);
+  display: grid; place-items: center; color: var(--_accent, var(--coral));
+  background: color-mix(in srgb, var(--_accent, var(--coral)) 14%, var(--white));
+}
+.topic__icon svg { width: 30px; height: 30px; }
+.topic h3 { font-size: 1.12rem; }
+
+/* ============================================================
+   FEATURED + LATEST POSTS
+   ============================================================ */
+.posts-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--space-5); }
+.post-feature { display: flex; flex-direction: column; }
+.post-feature .photo { aspect-ratio: 16 / 11; }
+.post-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+.post-card { display: flex; flex-direction: column; }
+.post-card .photo { aspect-ratio: 16 / 10; }
+.post-card__body { padding: var(--space-4) var(--space-5) var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+.post-feature .post-card__body { padding: var(--space-5) var(--space-6) var(--space-6); }
+.post-card__meta { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; }
+.post-card__date { font-size: var(--fs-small); color: var(--text-faint); display: inline-flex; align-items: center; gap: 0.4em; }
+.post-card__date svg { width: 15px; height: 15px; }
+.post-card h3 { line-height: 1.22; }
+.post-feature h3 { font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); }
+.post-card__excerpt { color: var(--text-muted); font-size: var(--fs-small); }
+.read-more { font-family: var(--font-display); font-weight: 500; color: var(--coral-deep); display: inline-flex; align-items: center; gap: 0.4em; margin-top: auto; }
+.read-more svg { width: 18px; height: 18px; transition: transform var(--dur) var(--ease-out); }
+.post-card:hover .read-more svg { transform: translateX(4px); }
+
+/* ============================================================
+   POPULAR POSTS
+   ============================================================ */
+.popular { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.popular__item { display: flex; gap: var(--space-4); align-items: center; background: var(--surface); border-radius: var(--r-lg); padding: var(--space-4); box-shadow: var(--shadow-sm); transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
+.popular__item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.popular__num { font-family: var(--font-display); font-weight: 600; font-size: 2.4rem; line-height: 1; color: var(--blush-deep); flex: none; width: 1.4em; text-align: center; }
+.popular__item:nth-child(1) .popular__num { color: var(--coral); }
+.popular__item:nth-child(2) .popular__num { color: var(--teal); }
+.popular__item:nth-child(3) .popular__num { color: var(--yellow-deep); }
+.popular__txt .pill { margin-bottom: 0.5em; }
+.popular__txt h3 { font-size: 1.08rem; line-height: 1.25; }
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.quote { background: var(--surface); border-radius: var(--r-xl); padding: var(--space-6); box-shadow: var(--shadow-sm); position: relative; display: flex; flex-direction: column; gap: var(--space-4); }
+.quote::after { content: ""; position: absolute; bottom: -14px; left: 42px; width: 28px; height: 28px; background: var(--surface); border-radius: 0 0 0 8px; transform: rotate(45deg); box-shadow: var(--shadow-sm); clip-path: polygon(100% 0, 0 100%, 100% 100%); }
+.quote__mark { font-family: var(--font-display); font-size: 2.6rem; line-height: 0.4; color: var(--teal); height: 0.5em; }
+.quote p { color: var(--text); font-size: 1.05rem; }
+.quote__author { display: flex; align-items: center; gap: var(--space-3); margin-top: auto; }
+.quote__avatar { width: 46px; height: 46px; border-radius: var(--r-pill); overflow: hidden; flex: none; box-shadow: var(--shadow-xs); }
+.quote__avatar .photo { width: 100%; height: 100%; }
+.quote__author b { font-family: var(--font-display); font-weight: 500; font-size: 0.98rem; }
+.quote__author span { display: block; font-size: var(--fs-small); color: var(--text-faint); }
+
+/* ============================================================
+   NEWSLETTER BAND
+   ============================================================ */
+.newsletter { position: relative; }
+.newsletter__inner { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--coral) 0%, #FF9472 100%); border-radius: var(--r-2xl); padding: clamp(2.5rem, 1.5rem + 4vw, 4.5rem); color: #fff; box-shadow: var(--shadow-lg); }
+.newsletter__inner h2 { color: #fff; max-width: 16ch; }
+.newsletter__inner p { color: rgba(255,255,255,0.92); max-width: 48ch; margin-top: var(--space-3); }
+.newsletter__form { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--space-6); max-width: 540px; }
+.newsletter__form input[type="email"] { flex: 1; min-width: 220px; font-family: var(--font-body); font-size: 1.02rem; font-weight: 500; padding: 0.85em 1.25em; border-radius: var(--r-pill); border: 2px solid transparent; background: #fff; color: var(--ink); }
+.newsletter__form input::placeholder { color: var(--text-faint); }
+.newsletter__form input:focus-visible { outline: none; border-color: var(--yellow); box-shadow: 0 0 0 4px rgba(255,194,71,0.45); }
+.newsletter__consent { display: flex; gap: 0.6em; align-items: flex-start; margin-top: var(--space-4); font-size: var(--fs-small); color: rgba(255,255,255,0.9); max-width: 52ch; }
+.newsletter__consent a { text-decoration: underline; }
+.newsletter__consent input { margin-top: 0.25em; accent-color: var(--yellow); width: 18px; height: 18px; flex: none; }
+
+/* ============================================================
+   INSTAGRAM STRIP
+   ============================================================ */
+.insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+.insta-tile { position: relative; aspect-ratio: 1; border-radius: var(--r-md); overflow: hidden; cursor: pointer; }
+.insta-tile .photo { width: 100%; height: 100%; }
+.insta-tile__overlay { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; background: color-mix(in srgb, var(--coral) 75%, transparent); opacity: 0; transition: opacity var(--dur) var(--ease-out); }
+.insta-tile__overlay svg { width: 26px; height: 26px; }
+.insta-tile:hover .insta-tile__overlay { opacity: 1; }
+.insta-handle { font-family: var(--font-display); font-weight: 500; color: var(--coral-deep); display: inline-flex; align-items: center; gap: 0.4em; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer { background: var(--ink); color: #CFCEDB; padding-block: var(--space-9) var(--space-6); }
+.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: var(--space-6); }
+.site-footer .brand { color: #fff; margin-bottom: var(--space-4); }
+.footer-about { color: #A9A7BC; max-width: 34ch; font-size: var(--fs-small); }
+.footer-sign { font-family: var(--font-script); font-weight: 600; font-size: 1.7rem; color: var(--yellow); margin-top: var(--space-4); display: inline-block; }
+.footer-col h4 { color: #fff; font-size: 1.05rem; margin-bottom: var(--space-4); }
+.footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-3); }
+.footer-col a { color: #A9A7BC; font-size: var(--fs-small); transition: color var(--dur); }
+.footer-col a:hover { color: var(--coral); }
+.footer-social { display: flex; gap: var(--space-3); margin-top: var(--space-4); }
+.footer-social a { width: 42px; height: 42px; border-radius: var(--r-pill); display: grid; place-items: center; background: rgba(255,255,255,0.08); color: #fff; transition: background var(--dur), transform var(--dur); }
+.footer-social a:hover { background: var(--coral); transform: translateY(-3px); }
+.footer-social svg { width: 20px; height: 20px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: var(--space-8); padding-top: var(--space-5); display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; font-size: var(--fs-small); color: #8d8ba0; }
+.footer-bottom a { color: #8d8ba0; }
+.footer-bottom a:hover { color: #fff; }
+
+/* ============================================================
+   COOKIE BANNER
+   ============================================================ */
+.cookie {
+  position: fixed; z-index: 200; left: var(--gutter); right: var(--gutter); bottom: var(--gutter);
+  margin-inline: auto; max-width: 760px;
+  background: var(--white); border-radius: var(--r-xl); box-shadow: var(--shadow-lg);
+  padding: var(--space-5) var(--space-6); display: flex; align-items: center; gap: var(--space-5);
+  transform: translateY(140%); transition: transform var(--dur-slow) var(--ease-out);
+}
+.cookie.is-visible { transform: translateY(0); }
+.cookie__icon { width: 48px; height: 48px; border-radius: var(--r-md); flex: none; display: grid; place-items: center; background: var(--blush); color: var(--coral-deep); }
+.cookie__icon svg { width: 26px; height: 26px; }
+.cookie__txt { font-size: var(--fs-small); color: var(--text-muted); flex: 1; }
+.cookie__txt strong { font-family: var(--font-display); color: var(--ink); display: block; margin-bottom: 0.2em; font-size: 1rem; }
+.cookie__txt a { color: var(--coral-deep); text-decoration: underline; }
+.cookie__actions { display: flex; gap: var(--space-3); flex: none; }
+
+/* ============================================================
+   ENTRANCE ANIMATION
+   ============================================================ */
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.intro-anim { animation: reveal-in var(--dur-slow) var(--ease-out) both; }
+}
+
+/* ============================================================
+   BLOCK-EDITOR INTRO SECTION
+   ============================================================ */
+.wp-block-group.section.intro {
+  background: var(--blush) !important;
+  padding-block: var(--section-y);
+}
+.wp-block-group.section.intro .eyebrow { color: var(--teal-deep); }
+.section--teal .eyebrow { color: var(--teal-deep); }
+.newsletter__inner .eyebrow { color: var(--yellow); }
+.newsletter__inner.is-layout-flow > * { margin-inline: 0; }
+.wp-block-group.section.intro .intro__sign {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 2.1rem;
+  color: var(--coral);
+  display: inline-block;
+  margin-top: var(--space-4);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 980px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__media { order: -1; max-width: 380px; }
+  .topics { grid-template-columns: repeat(3, 1fr); }
+  .posts-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--space-7) var(--space-6); }
+}
+
+@media (max-width: 720px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__toggle { display: grid; }
+  .nav { height: 66px; }
+
+  .nav.is-open .nav__links {
+    display: flex; flex-direction: column; align-items: stretch; gap: var(--space-1);
+    position: absolute; top: 66px; left: 0; right: 0;
+    background: var(--white); padding: var(--space-4) var(--gutter) var(--space-5);
+    box-shadow: var(--shadow-md); margin: 0;
+  }
+  .nav.is-open .nav__links a { padding: 0.75em 0.9em; font-size: 1.1rem; }
+  .nav.is-open .nav__cta { display: block; margin: var(--space-3) var(--gutter) 0; }
+  .nav.is-open .nav__cta .btn { width: 100%; justify-content: center; }
+
+  .hero__stats { gap: var(--space-5); flex-wrap: wrap; }
+  .hero__badge--tl { left: 0; }
+  .hero__badge--br { right: 0; }
+  .intro__grid { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .topics { grid-template-columns: repeat(2, 1fr); }
+  .post-grid-2 { grid-template-columns: 1fr; }
+  .popular { grid-template-columns: 1fr; }
+  .quotes { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cookie { flex-direction: column; align-items: flex-start; }
+  .cookie__actions { width: 100%; }
+  .cookie__actions .btn { flex: 1; justify-content: center; }
+}
+
+/* ============================================================
+   HERO — BLOCK EDITOR
+   Mirrors the PHP template structure exactly:
+     PHP:   <section.hero> → <div.container> → <div.hero__grid>
+     Blocks: <div.wp-block-group.hero> → <div.wp-block-columns.hero__grid>
+   The columns act as .container (max-width + padding).
+   ============================================================ */
+
+/* 1. Group = <section.hero>: full-width, vertical padding, no horizontal padding
+      (horizontal padding goes on the inner columns, acting as .container)
+      ::before = teal dot  (top:18% left:6%, float 7s)
+      ::after  = yellow dot (top:30% left:14%, float 7s reverse) */
+.wp-block-group.hero {
+  padding-inline: 0 !important;
+  /*background-color: var(--cream);*/
+  position: relative;
+  overflow: hidden;
+}
+.wp-block-group.hero::before,
+.wp-block-group.hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.wp-block-group.hero::before {
+  width: 18px; height: 18px;
+  background: var(--teal);
+  top: 18%; left: 6%;
+  animation: float 7s var(--ease-soft) infinite;
+}
+.wp-block-group.hero::after {
+  width: 11px; height: 11px;
+  background: var(--yellow);
+  top: 30%; left: 14%;
+  animation: float 7s var(--ease-soft) infinite alternate-reverse;
+}
+
+/* Coral dot on left column ::before  (bottom:22% left:4% of the copy column,
+   which visually matches the PHP template's left:4% of the full hero). */
+.wp-block-column.hero__copy::before {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  width: 14px; height: 14px;
+  background: var(--coral);
+  bottom: 22%; left: 4%;
+  animation: float 11s var(--ease-soft) infinite;
+}
+
+/* 2. Columns = .container + .hero__grid combined */
+.wp-block-columns.hero__grid {
+  /* Container behaviour */
+  max-width: var(--container) !important;
+  margin-inline: auto !important;
+  padding-inline: var(--gutter) !important;
+  box-sizing: border-box;
+  /* CSS grid replacing Gutenberg flex */
+  display: grid !important;
+  grid-template-columns: 1.05fr 0.95fr !important;
+  gap: clamp(2rem, 1rem + 4vw, 5rem) !important;
+  align-items: center !important;
+}
+
+
+/* 4. Left column content — reset Gutenberg's is-layout-flow margins
+      (global: :root :where(.is-layout-flow) > * { margin-block-start: 24px })
+      then restore exact PHP template spacings */
+.wp-block-column.hero__copy.is-layout-flow > * {
+  margin-block: 0 !important;
+}
+
+/* Eyebrow */
+.wp-block-column.hero__copy .hero__eyebrow {
+  color: var(--teal-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.wp-block-column.hero__copy .hero__eyebrow::before {
+  content: '';
+  width: 26px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+
+/* H1 title */
+.wp-block-column.hero__copy .hero__title {
+  font-size: var(--fs-display) !important;
+  line-height: var(--lh-tight) !important;
+  max-width: 15ch;
+  text-wrap: pretty;
+  margin-top: 0 !important;
+}
+.wp-block-column.hero__copy .hero__title .accent { color: var(--coral); }
+
+/* Subtitle */
+.wp-block-column.hero__copy .hero__sub {
+  margin-top: var(--space-5) !important;
+  max-width: 46ch;
+  font-size: var(--fs-lead);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Buttons row */
+.wp-block-column.hero__copy .wp-block-buttons.hero__actions {
+  margin-top: var(--space-6) !important;
+  gap: var(--space-3);
+}
+
+/* Stats row */
+.wp-block-columns.hero__stats {
+  margin-top: var(--space-7) !important;
+  flex-wrap: nowrap !important;
+  gap: var(--space-6) !important;
+  align-items: flex-start;
+  padding: 0 !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+}
+.wp-block-columns.hero__stats > .wp-block-column {
+  padding: 0 !important;
+  flex: 1 !important;
+}
+/* Reset flow margins inside each stat cell */
+.wp-block-columns.hero__stats .wp-block-column.is-layout-flow > * {
+  margin-block: 0 !important;
+}
+.hero__stat-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--ink);
+  line-height: 1;
+}
+.hero__stat-num strong { font-weight: 600; }
+.hero__stat-lbl {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  margin-top: 0.2em !important;
+}
+
+/* 5. Right column (hero__media)
+      max-width: 480px centred in its grid cell — matches PHP .hero__media
+      ::before = animated yellow halo
+      ::after  = coral blob placeholder (shown until user uploads a photo)
+      .wp-block-image = uploaded photo with blob border-radius */
+.wp-block-column.hero__media {
+  position: relative;
+  z-index: 2;
+  justify-self: center;
+  width: 100%;
+  max-width: 480px;
+  min-height: 420px;
+  align-self: center;
+}
+.wp-block-column.hero__media::before {
+  content: '';
+  position: absolute;
+  inset: -8% -10% -6% -3%;
+  z-index: 1;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  background: var(--yellow-tint);
+  pointer-events: none;
+  animation: float 11s var(--ease-soft) infinite;
+}
+.wp-block-column.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  box-shadow: var(--shadow-lg);
+  background:
+    radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.5), transparent 50%),
+    linear-gradient(135deg, #FFC4B2, var(--blush));
+  pointer-events: none;
+}
+/* Badges overlay inside the block version media column */
+.hero__badges-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.hero__badges-overlay .hero__badge {
+  pointer-events: auto;
+}
+
+/* Uploaded image gets blob shape */
+.wp-block-column.hero__media .wp-block-image {
+  position: relative;
+  z-index: 3;
+  margin: 0 !important;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.05;
+  box-shadow: var(--shadow-lg);
+}
+.wp-block-column.hero__media .wp-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none !important;
+  border-radius: 0 !important;
+}
+
+/* 6. Responsive */
+@media (max-width: 980px) {
+  .wp-block-columns.hero__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .wp-block-column.hero__media {
+    order: -1;
+    max-width: 380px;
+    margin-inline: auto;
+  }
+}
+
+/* ============================================================
+   ASTRA OVERRIDES
+   Astra ships heavy inline CSS (loaded before ours) that overrides
+   backgrounds, button colours, and heading colours via class and
+   element selectors with various specificities. These rules win
+   back the brand look.
+   ============================================================ */
+
+/* -- Section & page backgrounds -------------------------------- */
+.hero,
+.section,
+.section:not(.section--blush):not(.section--teal) {
+  /*background-color: var(--cream);*/
+}
+.section--blush { background-color: var(--blush) !important; }
+.section--teal  { background-color: var(--teal-tint) !important; }
+.intro          { background-color: var(--blush) !important; }
+
+/* -- PHP-template pill buttons (.btn class) --------------------
+   Astra can set `a { color: <blue> }` and `button { border-radius: 4px }`.
+   Our `.btn` selector has higher specificity, but add explicit resets
+   for safety.                                                   */
+a.btn,
+button.btn {
+  border-radius: var(--r-pill) !important;
+  text-decoration: none !important;
+}
+a.btn--primary,
+button.btn--primary {
+  background-color: var(--coral) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+a.btn--ghost,
+button.btn--ghost {
+  background-color: transparent !important;
+  color: var(--ink) !important;
+  border-color: var(--blush-deep) !important;
+}
+
+/* -- Gutenberg block buttons (.wp-block-button__link) ----------
+   Astra targets `.wp-block-button .wp-block-button__link` with
+   specificity (0,2,0) and sets blue bg + 4px radius.
+   Our selectors below all have specificity (0,3,0).             */
+.wp-block-button.is-style-pill-primary .wp-block-button__link,
+.wp-block-button.is-style-pill-primary .wp-block-button__link:hover,
+.wp-block-button.is-style-pill-primary .wp-block-button__link:focus {
+  background-color: var(--coral) !important;
+  border-color: var(--coral) !important;
+  color: #fff !important;
+  border-radius: var(--r-pill) !important;
+  padding: 0.78em 1.5em !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  box-shadow: var(--shadow-coral) !important;
+}
+
+.wp-block-button.is-style-pill-ghost .wp-block-button__link,
+.wp-block-button.is-style-pill-ghost .wp-block-button__link:hover,
+.wp-block-button.is-style-pill-ghost .wp-block-button__link:focus {
+  background-color: transparent !important;
+  border: 2px solid var(--blush-deep) !important;
+  color: var(--ink) !important;
+  border-radius: var(--r-pill) !important;
+  padding: 0.78em 1.5em !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+.wp-block-button.is-style-pill-ghost .wp-block-button__link:hover,
+.wp-block-button.is-style-pill-ghost .wp-block-button__link:focus {
+  border-color: var(--coral) !important;
+  color: var(--coral-deep) !important;
+  background-color: var(--white) !important;
+}
+
+/* -- Headings --------------------------------------------------
+   Astra sets h1-h6 colour to its global dark colour. Keep ours. */
+h1, h2, h3, h4, h5, h6,
+.entry-content h1, .entry-content h2,
+.entry-content h3, .entry-content h4 {
+  color: var(--ink) !important;
+  font-family: var(--font-display) !important;
+}
