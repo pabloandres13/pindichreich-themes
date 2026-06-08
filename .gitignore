@@ -49,5 +49,6 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
-
+.agents/
+.claude/
 claude-last-run.txt
