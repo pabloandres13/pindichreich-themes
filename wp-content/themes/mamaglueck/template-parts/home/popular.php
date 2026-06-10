@@ -11,7 +11,7 @@ $popular = new WP_Query( [
 $pills = [ 'pill--coral', 'pill--teal', 'pill--yellow' ];
 ?>
 
-<section class="section">
+<section class="section section--home">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow"><?php esc_html_e( 'Von Leserinnen geliebt', 'mamaglueck' ); ?></span>

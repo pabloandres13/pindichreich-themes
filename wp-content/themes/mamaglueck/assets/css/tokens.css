@@ -114,7 +114,8 @@ body.ast-separate-container,
 body.ast-plain-container,
 body.ast-page-builder-template {
   margin: 0;
-  /* Raw hex avoids any var() resolution ambiguity */
+  /* Astra Customizer outputs an inline <style> for body background — inline
+     styles beat any cascade rule, so !important is the only way to override. */
   background-color: #F0F5FA !important; /* --cream */
   background-image: none !important;
   color: var(--text);
@@ -148,9 +149,9 @@ a  { color: inherit; text-decoration: none; }
 .muted     { color: var(--text-muted); }
 
 /* Hide Astra header/footer elements that we fully replace */
-#masthead, #colophon { display: none !important; }
-#main { padding: 0 !important; margin: 0 !important; }
-.ast-container { max-width: none !important; padding: 0 !important; }
+#masthead, #colophon { display: none; }
+#main { padding: 0; margin: 0; }
+.ast-container { max-width: none; padding: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

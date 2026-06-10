@@ -5,9 +5,10 @@
 
 /* ---------- Layout primitives ---------- */
 .container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
-.section { padding-block: var(--section-y); position: relative; }
-.section--blush { background: var(--bg-alt); }
-.section--teal  { background: var(--teal-tint); }
+/*.section { padding-block: var(--section-y); position: relative; }*/
+.section--home { padding-block: var(--section-y); position: relative; }
+.section--blush { background: var(--bg-alt); padding-block: var(--section-y);}
+.section--teal  { background: var(--teal-tint); padding-block: var(--section-y);}
 .section-head { display: flex; flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-7); }
 .section-head .eyebrow { color: var(--coral); }
 .section-head h2 { max-width: 18ch; }
@@ -171,7 +172,7 @@
 .intro__portrait img { width: 100%; height: 100%; object-fit: cover; }
 .intro__body h2 { margin-bottom: var(--space-3); }
 .intro__body p { color: var(--text-muted); max-width: 60ch; }
-.intro__sign { font-family: var(--font-script); font-weight: 700; font-size: 2.1rem; color: var(--coral); margin-top: var(--space-4); display: inline-block; }
+.intro__sign { font-family: var(--font-script); font-weight: 700; font-size: 2.1rem; color: var(--coral); margin-top: var(--space-4); }
 
 /* ============================================================
    TOPIC CATEGORIES
@@ -320,7 +321,7 @@
    BLOCK-EDITOR INTRO SECTION
    ============================================================ */
 .wp-block-group.section.intro {
-  background: var(--blush) !important;
+  background: var(--blush);
   padding-block: var(--section-y);
 }
 .wp-block-group.section.intro .eyebrow { color: var(--teal-deep); }
@@ -332,7 +333,6 @@
   font-weight: 700;
   font-size: 2.1rem;
   color: var(--coral);
-  display: inline-block;
   margin-top: var(--space-4);
 }
 
@@ -390,7 +390,7 @@
       ::before = teal dot  (top:18% left:6%, float 7s)
       ::after  = yellow dot (top:30% left:14%, float 7s reverse) */
 .wp-block-group.hero {
-  padding-inline: 0 !important;
+  padding-inline: 0;
   /*background-color: var(--cream);*/
   position: relative;
   overflow: hidden;
@@ -433,24 +433,17 @@
 /* 2. Columns = .container + .hero__grid combined */
 .wp-block-columns.hero__grid {
   /* Container behaviour */
-  max-width: var(--container) !important;
-  margin-inline: auto !important;
-  padding-inline: var(--gutter) !important;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
   box-sizing: border-box;
   /* CSS grid replacing Gutenberg flex */
-  display: grid !important;
-  grid-template-columns: 1.05fr 0.95fr !important;
-  gap: clamp(2rem, 1rem + 4vw, 5rem) !important;
-  align-items: center !important;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
 }
 
-
-/* 4. Left column content — reset Gutenberg's is-layout-flow margins
-      (global: :root :where(.is-layout-flow) > * { margin-block-start: 24px })
-      then restore exact PHP template spacings */
-.wp-block-column.hero__copy.is-layout-flow > * {
-  margin-block: 0 !important;
-}
 
 /* Eyebrow */
 .wp-block-column.hero__copy .hero__eyebrow {
@@ -470,17 +463,17 @@
 
 /* H1 title */
 .wp-block-column.hero__copy .hero__title {
-  font-size: var(--fs-display) !important;
-  line-height: var(--lh-tight) !important;
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
   max-width: 15ch;
   text-wrap: pretty;
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 .wp-block-column.hero__copy .hero__title .accent { color: var(--coral); }
 
 /* Subtitle */
 .wp-block-column.hero__copy .hero__sub {
-  margin-top: var(--space-5) !important;
+  margin-top: var(--space-5);
   max-width: 46ch;
   font-size: var(--fs-lead);
   color: var(--text-muted);
@@ -489,27 +482,27 @@
 
 /* Buttons row */
 .wp-block-column.hero__copy .wp-block-buttons.hero__actions {
-  margin-top: var(--space-6) !important;
+  margin-top: var(--space-6);
   gap: var(--space-3);
 }
 
 /* Stats row */
 .wp-block-columns.hero__stats {
-  margin-top: var(--space-7) !important;
-  flex-wrap: nowrap !important;
-  gap: var(--space-6) !important;
+  margin-top: var(--space-7);
+  flex-wrap: nowrap;
+  gap: var(--space-6);
   align-items: flex-start;
-  padding: 0 !important;
-  max-width: none !important;
-  margin-inline: 0 !important;
+  padding: 0;
+  max-width: none;
+  margin-inline: 0;
 }
 .wp-block-columns.hero__stats > .wp-block-column {
-  padding: 0 !important;
-  flex: 1 !important;
+  padding: 0;
+  flex: 1;
 }
 /* Reset flow margins inside each stat cell */
 .wp-block-columns.hero__stats .wp-block-column.is-layout-flow > * {
-  margin-block: 0 !important;
+  margin-block: 0;
 }
 .hero__stat-num {
   font-family: var(--font-display);
@@ -522,7 +515,7 @@
 .hero__stat-lbl {
   font-size: var(--fs-small);
   color: var(--text-muted);
-  margin-top: 0.2em !important;
+  margin-top: 0.2em;
 }
 
 /* 5. Right column (hero__media)
@@ -534,33 +527,12 @@
   position: relative;
   z-index: 2;
   justify-self: center;
-  width: 100%;
-  max-width: 480px;
-  min-height: 420px;
   align-self: center;
+  /* Square box — pseudo-element percentages stay circular */
+  width: 450px;
+  height: 450px;
 }
-.wp-block-column.hero__media::before {
-  content: '';
-  position: absolute;
-  inset: -8% -10% -6% -3%;
-  z-index: 1;
-  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
-  background: var(--yellow-tint);
-  pointer-events: none;
-  animation: float 11s var(--ease-soft) infinite;
-}
-.wp-block-column.hero__media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
-  box-shadow: var(--shadow-lg);
-  background:
-    radial-gradient(120% 120% at 15% 10%, rgba(255,255,255,0.5), transparent 50%),
-    linear-gradient(135deg, #FFC4B2, var(--blush));
-  pointer-events: none;
-}
+
 /* Badges overlay inside the block version media column */
 .hero__badges-overlay {
   position: absolute;
@@ -572,11 +544,42 @@
   pointer-events: auto;
 }
 
+/* Gallery inside hero__media — square blob-circle (clip + shape live here) */
+.wp-block-column.hero__media .wp-block-gallery {
+  display: block;     /* override Gutenberg's flex layout */
+  width: 380px;
+  height: 380px;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+  border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+/* Inner image figures fill the gallery container.
+   :not(#individual-image) mirrors Gutenberg's own selector to win specificity. */
+.wp-block-column.hero__media .wp-block-gallery.has-nested-images figure.wp-block-image:not(#individual-image) {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0;
+  aspect-ratio: unset;
+  overflow: hidden;
+}
+.wp-block-column.hero__media .wp-block-gallery .wp-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  max-width: none;
+  border-radius: 0;
+}
+
 /* Uploaded image gets blob shape */
 .wp-block-column.hero__media .wp-block-image {
   position: relative;
   z-index: 3;
-  margin: 0 !important;
+  margin: 0;
   border-radius: 46% 54% 56% 44% / 52% 46% 54% 48%;
   overflow: hidden;
   aspect-ratio: 1 / 1.05;
@@ -587,19 +590,25 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  max-width: none !important;
-  border-radius: 0 !important;
+  max-width: none;
+  border-radius: 0;
 }
 
 /* 6. Responsive */
 @media (max-width: 980px) {
   .wp-block-columns.hero__grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
   .wp-block-column.hero__media {
     order: -1;
-    max-width: 380px;
-    margin-inline: auto;
+    /* Square at mobile size — keeps halo and blob circular */
+    width: min(280px, 90vw);
+    height: min(280px, 90vw);
+    margin: auto;
+  }
+  .wp-block-column.hero__media .wp-block-gallery {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -617,9 +626,9 @@
 .section:not(.section--blush):not(.section--teal) {
   /*background-color: var(--cream);*/
 }
-.section--blush { background-color: var(--blush) !important; }
-.section--teal  { background-color: var(--teal-tint) !important; }
-.intro          { background-color: var(--blush) !important; }
+.section--blush { background-color: var(--blush); }
+.section--teal  { background-color: var(--teal-tint); }
+.intro          { background-color: var(--blush); }
 
 /* -- PHP-template pill buttons (.btn class) --------------------
    Astra can set `a { color: <blue> }` and `button { border-radius: 4px }`.
@@ -627,20 +636,20 @@
    for safety.                                                   */
 a.btn,
 button.btn {
-  border-radius: var(--r-pill) !important;
-  text-decoration: none !important;
+  border-radius: var(--r-pill);
+  text-decoration: none;
 }
 a.btn--primary,
 button.btn--primary {
-  background-color: var(--coral) !important;
-  color: #fff !important;
-  border-color: transparent !important;
+  background-color: var(--coral);
+  color: #fff;
+  border-color: transparent;
 }
 a.btn--ghost,
 button.btn--ghost {
-  background-color: transparent !important;
-  color: var(--ink) !important;
-  border-color: var(--blush-deep) !important;
+  background-color: transparent;
+  color: var(--ink);
+  border-color: var(--blush-deep);
 }
 
 /* -- Gutenberg block buttons (.wp-block-button__link) ----------
@@ -650,33 +659,33 @@ button.btn--ghost {
 .wp-block-button.is-style-pill-primary .wp-block-button__link,
 .wp-block-button.is-style-pill-primary .wp-block-button__link:hover,
 .wp-block-button.is-style-pill-primary .wp-block-button__link:focus {
-  background-color: var(--coral) !important;
-  border-color: var(--coral) !important;
-  color: #fff !important;
-  border-radius: var(--r-pill) !important;
-  padding: 0.78em 1.5em !important;
-  font-family: var(--font-display) !important;
-  font-weight: 500 !important;
-  box-shadow: var(--shadow-coral) !important;
+  background-color: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+  border-radius: var(--r-pill);
+  padding: 0.78em 1.5em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  box-shadow: var(--shadow-coral);
 }
 
 .wp-block-button.is-style-pill-ghost .wp-block-button__link,
 .wp-block-button.is-style-pill-ghost .wp-block-button__link:hover,
 .wp-block-button.is-style-pill-ghost .wp-block-button__link:focus {
-  background-color: transparent !important;
-  border: 2px solid var(--blush-deep) !important;
-  color: var(--ink) !important;
-  border-radius: var(--r-pill) !important;
-  padding: 0.78em 1.5em !important;
-  font-family: var(--font-display) !important;
-  font-weight: 500 !important;
-  box-shadow: none !important;
+  background-color: transparent;
+  border: 2px solid var(--blush-deep);
+  color: var(--ink);
+  border-radius: var(--r-pill);
+  padding: 0.78em 1.5em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  box-shadow: none;
 }
 .wp-block-button.is-style-pill-ghost .wp-block-button__link:hover,
 .wp-block-button.is-style-pill-ghost .wp-block-button__link:focus {
-  border-color: var(--coral) !important;
-  color: var(--coral-deep) !important;
-  background-color: var(--white) !important;
+  border-color: var(--coral);
+  color: var(--coral-deep);
+  background-color: var(--white);
 }
 
 /* -- Headings --------------------------------------------------
@@ -684,6 +693,167 @@ button.btn--ghost {
 h1, h2, h3, h4, h5, h6,
 .entry-content h1, .entry-content h2,
 .entry-content h3, .entry-content h4 {
-  color: var(--ink) !important;
-  font-family: var(--font-display) !important;
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+/* ============================================================
+   SINGLE POST / PAGE LAYOUT
+   ============================================================ */
+
+.page-entry-content,
+.post-entry-content {
+  margin: 2em auto;
+  max-width: 1200px;
+  padding-inline: var(--gutter);
+}
+
+@media (max-width: 768px) {
+  .page-entry-content,
+  .post-entry-content {
+    margin: 1em auto;
+  }
+}
+
+/* Title banner above the content */
+.post-header {
+  background: var(--bg-alt);
+  padding-block: clamp(2.5rem, 1rem + 4vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.post-header__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  /* Readable column width for the header text */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  max-width: 760px;
+}
+.post-header__title {
+  font-size: clamp(1.9rem, 1.2rem + 2.5vw, 3rem);
+  line-height: var(--lh-tight);
+  text-wrap: pretty;
+  margin: 0;
+}
+.post-header__meta {
+  color: var(--text-muted);
+  font-size: var(--fs-small);
+  margin: 0;
+}
+
+/* Featured image */
+.post-thumbnail {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  padding-block: var(--space-7);
+}
+.post-thumbnail__img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  display: block;
+}
+
+/* Centered reading column — default blocks live here */
+.entry-content {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+/* Vertical rhythm between blocks */
+.entry-content > * + * {
+  margin-top: var(--space-5);
+}
+.entry-content p {
+  line-height: 1.75;
+  color: var(--text);
+}
+.entry-content a {
+  color: var(--coral-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.entry-content a:hover {
+  color: var(--coral);
+}
+.entry-content ul,
+.entry-content ol {
+  padding-left: 1.5em;
+  line-height: 1.75;
+}
+.entry-content blockquote {
+  border-left: 4px solid var(--coral);
+  padding-left: var(--space-5);
+  margin-inline: 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.entry-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+}
+.entry-content hr {
+  border: none;
+  border-top: 2px solid var(--line);
+  margin-block: var(--space-7);
+}
+/* Figures & captions */
+.entry-content figure {
+  margin-inline: 0;
+}
+.entry-content figcaption {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: var(--space-2);
+}
+
+/* Gutenberg alignment overrides
+   alignwide  — stretches to the container (~1200 px)
+   alignfull  — edge-to-edge                          */
+.entry-content .alignwide {
+  max-width: min(var(--container), 100vw);
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  padding-inline: var(--gutter);
+}
+.entry-content .alignfull {
+  max-width: 100vw;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+.entry-content .alignleft {
+  float: left;
+  margin-right: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+.entry-content .alignright {
+  float: right;
+  margin-left: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+.entry-content .aligncenter {
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .entry-content .alignleft,
+  .entry-content .alignright {
+    float: none;
+    margin-inline: 0;
+  }
+}
+
+
+.page-entry-content, .post-entry-content {
+  margin: 2em auto;
+  max-width: 1200px;
+
 }

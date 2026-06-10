@@ -1,7 +1,7 @@
 <?php
 $action = get_theme_mod( 'mg_newsletter_action', '#' );
 ?>
-<section class="section newsletter" id="newsletter">
+<section class="section section--home newsletter" id="newsletter">
   <div class="container">
     <div class="newsletter__inner reveal">
       <span class="deco dot float" style="width:120px;height:120px;background:rgba(255,255,255,0.12);top:-30px;right:8%"></span>

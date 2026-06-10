@@ -312,14 +312,14 @@ function mamaglueck_instagram_pattern_content() {
 		$tiles .= "\n  " . '<a href="https://instagram.com/' . esc_attr( $handle ) . '" class="insta-tile" target="_blank" rel="noopener noreferrer"><span class="photo" data-tint="' . esc_attr( $tint ) . '"></span><span class="insta-tile__overlay">' . $overlay_svg . '</span></a>';
 	}
 
-	return '<!-- wp:group {"className":"section","layout":{"type":"constrained","contentSize":"1200px"}} -->
-<div class="wp-block-group section is-layout-constrained wp-block-group-is-layout-constrained">
+	return '<!-- wp:group {"className":"section section--home","layout":{"type":"constrained","contentSize":"1200px"}} -->
+<div class="wp-block-group section section--home is-layout-constrained wp-block-group-is-layout-constrained">
 
 <!-- wp:group {"className":"section-head center reveal","layout":{"type":"default"}} -->
 <div class="wp-block-group section-head center reveal is-layout-flow wp-block-group-is-layout-flow">
 
 <!-- wp:paragraph {"className":"eyebrow"} -->
-<p class="eyebrow">Mehr Mama-Momente</p>
+<p class="eyebrow">Mehr Mama-Momenteaaa</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->

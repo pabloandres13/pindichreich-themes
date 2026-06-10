@@ -2,10 +2,10 @@
 $handle = get_theme_mod( 'mg_instagram_handle', 'mamaglueck' );
 $tints  = [ 'coral', 'teal', 'yellow', 'coral', 'teal', 'yellow' ];
 ?>
-<section class="section">
+<section class="section section--home">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow"><?php esc_html_e( 'Mehr Mama-Momente', 'mamaglueck' ); ?></span>
+      <span class="eyebrow"><?php esc_html_e( 'Mehr Mama-Momenaaaaate', 'mamaglueck' ); ?></span>
       <h2><?php esc_html_e( 'Folge mir auf Instagram', 'mamaglueck' ); ?></h2>
       <p>
         <a class="insta-handle" href="https://instagram.com/<?php echo esc_attr( $handle ); ?>" target="_blank" rel="noopener noreferrer">

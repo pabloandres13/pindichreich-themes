@@ -2,7 +2,7 @@
 $author = get_theme_mod( 'mg_author_name', 'Anna' );
 $bio    = get_theme_mod( 'mg_author_bio', 'Zweifach-Mama, Kaffee-Liebhaberin und Chaos-Managerin. Hier teile ich, was bei uns wirklich passiert: die schönen Momente, die anstrengenden Tage und alles dazwischen. Mit einem Augenzwinkern und ohne erhobenen Zeigefinger.' );
 ?>
-<section class="section intro" id="intro">
+<section class="section section--home intro" id="intro">
   <div class="container">
     <div class="intro__grid reveal">
       <div class="intro__portrait">

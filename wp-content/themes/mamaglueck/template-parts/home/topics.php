@@ -1,4 +1,4 @@
-<section class="section" id="themen">
+<section class="section section--home" id="themen">
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow"><?php esc_html_e( 'Stöbern nach Thema', 'mamaglueck' ); ?></span>
