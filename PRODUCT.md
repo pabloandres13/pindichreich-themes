@@ -6,7 +6,8 @@ A monorepo of WordPress Astra child themes. Each theme has its own product and d
 
 | Theme | Docs | Path |
 |---|---|---|
-| culinary    | [docs/culinary/PRODUCT.md](docs/culinary/PRODUCT.md)       | `wp-content/themes/culinary/`    |
-| mamaglueck  | [docs/mamaglueck/PRODUCT.md](docs/mamaglueck/PRODUCT.md)   | `wp-content/themes/mamaglueck/`  |
+| culinary     | [docs/culinary/PRODUCT.md](docs/culinary/PRODUCT.md)           | `wp-content/themes/culinary/`     |
+| mamaglueck   | [docs/mamaglueck/PRODUCT.md](docs/mamaglueck/PRODUCT.md)       | `wp-content/themes/mamaglueck/`   |
+| aurum-arcana | [docs/aurum-arcana/PRODUCT.md](docs/aurum-arcana/PRODUCT.md)   | `wp-content/themes/aurum-arcana/` |
 
 > When working on a specific theme, point `/impeccable` at `docs/<theme>/PRODUCT.md` for full context.

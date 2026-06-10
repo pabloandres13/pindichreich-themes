@@ -1,0 +1,212 @@
+/* ============================================================
+   Aurum Arcana — Design Tokens
+   All CSS custom properties for the theme.
+   ============================================================ */
+
+/* --- Webfonts ----------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+SC:wght@500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  /* --- Ink / dark grounds ------------------------------------ */
+  --ink-900: #0E0D0F;
+  --ink-850: #131114;
+  --ink-800: #14110F;
+  --ink-700: #1B1714;
+  --ink-600: #242019;
+  --ink-500: #322B22;
+  --ink-400: #443B2F;
+
+  /* --- Antique gold ------------------------------------------ */
+  --gold-700: #9A7B2E;
+  --gold-600: #BF9B30;
+  --gold-500: #C8A24A;
+  --gold-400: #E4C76B;
+  --gold-300: #F0DDA0;
+
+  /* --- Parchment / text -------------------------------------- */
+  --parchment-100: #EDE6D6;
+  --parchment-200: #D9D2C5;
+  --parchment-300: #B6AD9B;
+  --parchment-400: #847C6C;
+
+  /* --- Secondary deep tone ----------------------------------- */
+  --oxblood-700: #5A2A2A;
+  --oxblood-600: #7A3A37;
+  --teal-700:    #1F4E4A;
+
+  /* --- Alternate grounds ------------------------------------- */
+  --indigo-900:    #0F0E1A;
+  --indigo-800:    #15132A;
+  --aubergine-900: #1A0F16;
+  --aubergine-800: #251420;
+
+  /* --- Functional -------------------------------------------- */
+  --on-gold:   #14110F;
+  --success:   #6FA76A;
+  --danger:    #C06A5C;
+
+  /* ====== SEMANTIC ALIASES =================================== */
+  --bg-base:        var(--ink-900);
+  --bg-alt:         var(--ink-850);
+  --surface-1:      var(--ink-800);
+  --surface-card:   var(--ink-700);
+  --surface-raised: var(--ink-600);
+
+  --text-heading:   var(--gold-500);
+  --text-body:      var(--parchment-100);
+  --text-secondary: var(--parchment-200);
+  --text-muted:     var(--parchment-300);
+  --text-faint:     var(--parchment-400);
+
+  --accent:         var(--gold-500);
+  --accent-hover:   var(--gold-400);
+  --accent-strong:  var(--gold-600);
+  --accent-pressed: var(--gold-700);
+  --on-accent:      var(--on-gold);
+
+  --secondary:      var(--oxblood-700);
+
+  --hairline:        rgba(200, 162, 74, 0.22);
+  --hairline-strong: rgba(200, 162, 74, 0.45);
+  --border-neutral:  var(--ink-500);
+
+  --focus-ring: var(--gold-400);
+
+  /* ====== TYPOGRAPHY ========================================= */
+  --font-display: 'Cormorant', Georgia, 'Times New Roman', serif;
+  --font-body:    'EB Garamond', Georgia, 'Times New Roman', serif;
+  --font-label:   'EB Garamond', Georgia, serif;
+  --font-logo:    'Cormorant SC', 'Cormorant', serif;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.375rem;
+  --text-xl:   1.75rem;
+  --text-2xl:  2.25rem;
+  --text-3xl:  3rem;
+  --text-4xl:  4rem;
+  --text-5xl:  5.5rem;
+
+  --leading-tight:   1.08;
+  --leading-snug:    1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight:  -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.08em;
+  --tracking-label:  0.22em;
+
+  --display-font:    var(--font-display);
+  --display-weight:  var(--weight-semibold);
+  --display-leading: var(--leading-tight);
+
+  --heading-font:    var(--font-display);
+  --heading-weight:  var(--weight-semibold);
+
+  --body-font:       var(--font-body);
+  --body-size:       var(--text-md);
+  --body-leading:    var(--leading-relaxed);
+
+  --label-font:      var(--font-label);
+  --label-size:      var(--text-sm);
+  --label-tracking:  var(--tracking-label);
+
+  /* ====== SPACING ============================================ */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  3rem;
+  --space-8:  4rem;
+  --space-9:  6rem;
+  --space-10: 8rem;
+
+  --container-max:   1200px;
+  --measure:         68ch;
+  --gutter:          var(--space-5);
+  --section-y:       var(--space-9);
+
+  /* ====== EFFECTS ============================================ */
+  --radius-sm:   2px;
+  --radius-md:   4px;
+  --radius-lg:   8px;
+  --radius-pill: 999px;
+
+  --border-hairline:  1px solid var(--hairline);
+  --border-gold:      1px solid var(--hairline-strong);
+  --border-neutral-1: 1px solid var(--border-neutral);
+
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 12px 34px rgba(0, 0, 0, 0.55);
+  --shadow-pop:  0 20px 60px rgba(0, 0, 0, 0.65);
+
+  --glow-soft:   0 0 18px rgba(228, 199, 107, 0.16);
+  --glow-strong: 0 0 28px rgba(228, 199, 107, 0.28);
+  --glow-inset:  inset 0 0 0 1px rgba(200, 162, 74, 0.18);
+
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft:  cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:   140ms;
+  --dur-base:   240ms;
+  --dur-slow:   420ms;
+
+  --texture-starfield:
+    radial-gradient(1px 1px at 20% 30%,  rgba(240, 221, 160, 0.30), transparent 60%),
+    radial-gradient(1px 1px at 70% 60%,  rgba(240, 221, 160, 0.22), transparent 60%),
+    radial-gradient(1px 1px at 40% 80%,  rgba(237, 230, 214, 0.16), transparent 60%),
+    radial-gradient(1.5px 1.5px at 85% 22%, rgba(240, 221, 160, 0.25), transparent 60%),
+    radial-gradient(1px 1px at 55% 12%,  rgba(237, 230, 214, 0.14), transparent 60%);
+
+  --texture-vignette:
+    radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(0,0,0,0.45) 100%);
+
+  /* --- z-index scale ----------------------------------------- */
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+  --z-tooltip:  500;
+}
+
+/* ============================================================
+   THEME VARIANTS
+   ============================================================ */
+[data-theme="indigo"] {
+  --bg-base:       var(--indigo-900);
+  --bg-alt:        #110F20;
+  --surface-1:     var(--indigo-800);
+  --surface-card:  #1A1733;
+  --surface-raised:#211D3D;
+  --secondary:     var(--teal-700);
+  --hairline:      rgba(200, 162, 74, 0.20);
+}
+
+[data-theme="aubergine"] {
+  --bg-base:       var(--aubergine-900);
+  --bg-alt:        #160C12;
+  --surface-1:     var(--aubergine-800);
+  --surface-card:  #2A1622;
+  --surface-raised:#331B2A;
+  --secondary:     var(--oxblood-700);
+}
+
+/* ============================================================
+   REDUCED MOTION — disable all transitions and animations
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+  }
+}
