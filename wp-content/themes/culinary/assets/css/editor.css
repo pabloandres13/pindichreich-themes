@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Mulish:wght@400;600;700&display=swap');
+
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Mulish', system-ui, sans-serif;
+  --bg:           #FAF7F2;
+  --text-heading: #2B2622;
+  --text-body:    #4A433C;
+  --accent:       #C4622D;
+}
+
+.editor-styles-wrapper {
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  color: var(--text-body);
+  line-height: 1.65;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.editor-styles-wrapper a {
+  color: var(--accent);
+}
+
+.editor-styles-wrapper .wp-block {
+  max-width: 720px;
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+  max-width: 1200px;
+}
