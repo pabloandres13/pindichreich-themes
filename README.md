@@ -4,16 +4,16 @@ A collection of WordPress themes covering a range of lifestyle and interest topi
 
 ## Planned themes
 
-| Theme                   | Topic                   | Developed |
-|-------------------------|-------------------------|-----------|
-| `pindichreich-travel`   | Travel & adventure      | ✔         |
-| `pindichreich-sport`    | Sport & fitness         | |
-| `pindichreich-health`   | Health & wellness       | |
-| `pindichreich-esoteric` | Esoteric & spirituality | |
-| `pindichreich-mystic`   | Mysticism & occult      | |
-| `pindichreich-moms`     | Mamas & Parenting       | ✔ |
-| `pindichreich-coaching` | Coachings               | |
-| `pindichreich-food`     | Healthy Food            | |
+| Theme                       | Topic                   | Developed |
+|-----------------------------|-------------------------|-----------|
+| `pindichreich-travel`       | Travel & adventure      | ✔         |
+| `pindichreich-sport`        | Sport & fitness         |           |
+| `pindichreich-health`       | Health & wellness       |           |
+| `pindichreich-esoteric`     | Esoteric & spirituality |           |
+| `pindichreich-aurum-arcana` | Mysticism & occult      | ✔         |
+| `pindichreich-mamasglueck`  | Mamas & Parenting       | ✔         |
+| `pindichreich-coaching`     | Coaching                |           |
+| `pindichreich-culinary`     | Healthy Food            | ✔         |
 
 More themes to be added over time.
 

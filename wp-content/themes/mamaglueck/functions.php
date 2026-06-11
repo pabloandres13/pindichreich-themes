@@ -13,7 +13,7 @@ function mamaglueck_enqueue_assets() {
 		wp_get_theme( 'astra' )->get( 'Version' )
 	);
 
-	// Design tokens (CSS custom properties + Google Fonts)
+	// Design tokens (CSS custom properties + self-hosted fonts)
 	wp_enqueue_style(
 		'mamaglueck-tokens',
 		get_stylesheet_directory_uri() . '/assets/css/tokens.css',
