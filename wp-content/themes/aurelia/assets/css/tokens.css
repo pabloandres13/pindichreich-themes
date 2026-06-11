@@ -1,0 +1,260 @@
+/* ============================================================
+   Aurelia — Design Tokens
+   Bright, high-key health & wellness palette.
+   Green = health/nature · Blue = calm/trust · Sand = warmth
+   Forest = text & primary CTAs (accessible contrast)
+   ============================================================ */
+
+/* Schibsted Grotesk — variable font (headings) */
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/schibsted-grotesk-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/schibsted-grotesk-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/schibsted-grotesk-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/schibsted-grotesk-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Hanken Grotesk — variable font (body) */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* ---- Families ---- */
+  --font-heading: 'Schibsted Grotesk', 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---- Weights ---- */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;
+
+  /* ---- Fluid type scale — calm, generous, airy ---- */
+  --text-xs:   0.75rem;    /* 12 — fine print / legal */
+  --text-sm:   0.875rem;   /* 14 — captions, labels */
+  --text-base: 1rem;       /* 16 — body min on mobile */
+  --text-md:   1.0625rem;  /* 17 — comfortable body */
+  --text-lg:   1.25rem;    /* 20 — lead paragraph */
+  --text-xl:   1.5rem;     /* 24 — card titles */
+  --text-2xl:  1.875rem;   /* 30 — section sub-heads */
+  --text-3xl:  clamp(1.75rem, 1.2rem + 2.4vw, 2.5rem);
+  --text-4xl:  clamp(2.25rem, 1.4rem + 3.6vw, 3.5rem);
+  --text-5xl:  clamp(2.75rem, 1.5rem + 5vw, 4.5rem);
+
+  /* ---- Line heights ---- */
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-heading: 1.18;
+  --lh-body:    1.65;
+  --lh-relaxed: 1.8;
+
+  /* ---- Letter spacing ---- */
+  --ls-tight:  -0.02em;
+  --ls-snug:   -0.01em;
+  --ls-label:  0.14em;
+
+  /* ============================================================
+     COLOR PALETTE
+     ============================================================ */
+
+  /* Base */
+  --white: #ffffff;
+  --cream: #f6faf7;          /* soft, lightly green-tinted off-white */
+
+  /* Green (healing / nature / primary accent) */
+  --green-50:  #f1f8f4;
+  --green-100: #e3f0e9;
+  --green-200: #c8e1d3;
+  --green-300: #a6cfb8;
+  --green-400: #6fb58e;      /* healing green — the signature accent */
+  --green-500: #5ba37c;
+  --green-600: #4a8a68;
+  --green-700: #3a6b52;
+  --forest:    #243b30;      /* deep forest — text & primary fill */
+  --forest-700:#1b2d24;      /* primary hover */
+
+  /* Blue (calm / serenity / trust) */
+  --blue-50:  #f2f7f9;
+  --blue-100: #e5eff3;
+  --blue-200: #cfe2e9;
+  --blue-300: #a9cbd8;       /* soft blue secondary */
+  --blue-400: #9fc0d1;
+  --blue-500: #7fa7bc;
+  --blue-600: #5e8699;
+  --blue-700: #436576;
+
+  /* Sand (grounding warmth) */
+  --sand-100: #f6f1e9;
+  --sand-200: #ede7dd;       /* oat / sand */
+  --sand-300: #e0d6c6;
+
+  /* Warm neutral ink scale */
+  --ink-900: #1f2421;
+  --ink-800: #2c302e;        /* charcoal — body text alt */
+  --ink-700: #3e443f;
+  --ink-600: #545b55;
+  --ink-500: #6e756f;
+  --ink-400: #939a94;
+  --ink-300: #c2c8c3;
+  --ink-200: #dde2dd;
+  --ink-100: #ecefec;
+  --ink-50:  #f4f6f4;
+
+  /* Feedback */
+  --success: #4a8a68;
+  --warning: #c08a3e;
+  --danger:  #b5524b;
+  --info:    #5e8699;
+
+  /* ---- Semantic aliases — prefer these in components ---- */
+  /* Surfaces */
+  --surface-page:   var(--white);
+  --surface-muted:  var(--cream);
+  --surface-card:   var(--white);
+  --surface-sand:   var(--sand-200);
+  --surface-green:  var(--green-50);
+  --surface-blue:   var(--blue-50);
+  --surface-dark:   var(--forest);
+
+  /* Text */
+  --text-strong:  var(--forest);   /* headings */
+  --text-body:    var(--ink-800);  /* paragraphs */
+  --text-muted:   var(--ink-600);  /* secondary / captions */
+  --text-faint:   var(--ink-500);
+  --text-on-dark: var(--white);
+  --text-accent:  var(--green-600);
+
+  /* Lines & borders */
+  --border-soft:   #e3eae5;
+  --border-muted:  var(--ink-200);
+  --border-strong: var(--ink-300);
+
+  /* Accents */
+  --accent-green: var(--green-400);
+  --accent-blue:  var(--blue-300);
+  --accent-sand:  var(--sand-200);
+
+  /* Primary / interactive */
+  --primary:         var(--forest);
+  --primary-hover:   var(--forest-700);
+  --primary-text:    var(--white);
+  --secondary:       var(--green-400);
+  --secondary-hover: var(--green-500);
+
+  /* Focus */
+  --focus-ring: rgba(111, 181, 142, 0.55);
+
+  /* Section-label small-caps color */
+  --label-color: var(--green-600);
+
+  /* ============================================================
+     SPACING (4px base, generous & airy)
+     ============================================================ */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3rem;
+  --space-9:  4rem;
+  --space-10: 5rem;
+  --space-11: 6rem;
+  --space-12: 8rem;
+
+  --container-max:    1200px;
+  --container-narrow: 760px;   /* article measure */
+  --gutter:    clamp(1.25rem, 4vw, 3rem);
+  --section-y: clamp(3.5rem, 7vw, 7rem);
+
+  /* ============================================================
+     RADIUS — generous & soft
+     ============================================================ */
+  --radius-xs:  6px;
+  --radius-sm:  10px;
+  --radius-md:  16px;
+  --radius-lg:  22px;
+  --radius-xl:  30px;
+  --radius-2xl: 40px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+
+  /* ============================================================
+     SHADOWS — bright & airy, green-tinted ambient
+     ============================================================ */
+  --shadow-xs: 0 1px 2px rgba(36, 59, 48, 0.05);
+  --shadow-sm: 0 2px 8px rgba(36, 59, 48, 0.06);
+  --shadow-md: 0 8px 24px rgba(36, 59, 48, 0.08);
+  --shadow-lg: 0 18px 48px rgba(36, 59, 48, 0.10);
+  --shadow-xl: 0 30px 70px rgba(36, 59, 48, 0.12);
+
+  /* Focus ring */
+  --ring-width: 3px;
+  --ring: 0 0 0 var(--ring-width) var(--focus-ring);
+
+  /* ============================================================
+     MOTION — subtle, smooth, calming
+     ============================================================ */
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 420ms;
+}

@@ -1,0 +1,280 @@
+/* ============================================================
+   Body & Mind — Design Tokens
+   Lichtraum design system: lavender + sage over ivory/white
+   ============================================================ */
+
+/* Cormorant Garamond — all weights share same file per subset */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/cormorant-garamond-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/cormorant-garamond-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/cormorant-garamond-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/cormorant-garamond-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Mulish — variable font */
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/mulish-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/mulish-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/mulish-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Mulish';
+  font-style: italic;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('../fonts/mulish-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Caveat — variable font (script accent, sparingly) */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/caveat-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/caveat-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* ---- Families ---- */
+  --font-serif:  'Cormorant Garamond', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-script: 'Caveat', 'Brush Script MT', cursive;
+
+  /* ---- Weights ---- */
+  --weight-light:     300;
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  /* ---- Type scale ---- */
+  --text-xs:   0.8125rem;
+  --text-sm:   0.9375rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.375rem;
+  --text-xl:   1.75rem;
+  --text-2xl:  2.25rem;
+  --text-3xl:  3rem;
+  --text-4xl:  4rem;
+  --text-5xl:  clamp(3.25rem, 6vw, 5.25rem);
+
+  /* ---- Line heights ---- */
+  --leading-tight:   1.08;
+  --leading-snug:    1.22;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  /* ---- Letter spacing ---- */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-eyebrow: 0.18em;
+
+  /* ============================================================
+     COLOR PALETTE
+     ============================================================ */
+
+  /* Base surfaces */
+  --white:      #ffffff;
+  --ivory:      #fdfbf8;
+  --cream:      #fbf8f4;
+  --cream-deep: #f5efe7;
+
+  /* Lavender (primary accent) */
+  --lavender-50:  #f5f1fb;
+  --lavender-100: #eae2f5;
+  --lavender-200: #d9ccee;
+  --lavender-300: #c9b8e8;
+  --lavender-400: #b29bdb;
+  --lavender-500: #9b7fcc;
+  --lavender-600: #8265b5;
+  --lavender-700: #6a5097;
+  --lavender-800: #523c75;
+
+  /* Sage (secondary accent) */
+  --sage-50:  #f1f6ef;
+  --sage-100: #e3eddf;
+  --sage-200: #cbddc4;
+  --sage-300: #a8c3a0;
+  --sage-400: #8dae83;
+  --sage-500: #739569;
+  --sage-600: #5b7b52;
+  --sage-700: #46603f;
+
+  /* Warm neutrals (text + lines) */
+  --ink-900: #2e2a28;
+  --ink-800: #3a3532;
+  --ink-700: #514b47;
+  --ink-600: #655d57;
+  --ink-500: #7a726c;
+  --ink-400: #9c938c;
+  --ink-300: #c4bbb3;
+  --ink-200: #e4ddd5;
+  --ink-100: #f0eae3;
+  --ink-50:  #f8f4ef;
+
+  /* Honey (warm tertiary, sparingly) */
+  --honey-100: #faf0dc;
+  --honey-300: #e8c89a;
+  --honey-500: #c9962f;
+
+  /* Status */
+  --success:      #5b7b52;
+  --success-soft: #e3eddf;
+  --warning:      #c0902f;
+  --warning-soft: #faf0dc;
+  --danger:       #bd615a;
+  --danger-soft:  #f6e4e2;
+
+  /* ---- Semantic aliases ---- */
+  --bg-page:            var(--cream);
+  --bg-page-pure:       var(--white);
+  --bg-section-soft:    var(--lavender-50);
+  --bg-section-sage:    var(--sage-50);
+  --bg-dark:            var(--ink-900);
+  --surface-card:       var(--white);
+  --surface-sunken:     var(--ink-50);
+  --surface-accent-soft: var(--lavender-50);
+  --surface-sage-soft:  var(--sage-50);
+
+  --text-strong:   var(--ink-900);
+  --text-body:     var(--ink-700);
+  --text-muted:    var(--ink-500);
+  --text-on-dark:  var(--ivory);
+  --text-on-accent: var(--white);
+  --text-link:     var(--lavender-700);
+
+  --accent:        var(--lavender-300);
+  --accent-strong: var(--lavender-600);
+  --accent-text:   var(--lavender-700);
+  --sage:          var(--sage-300);
+  --sage-strong:   var(--sage-600);
+
+  --border-soft:   var(--ink-200);
+  --border-strong: var(--ink-300);
+  --border-accent: var(--lavender-200);
+  --focus-ring:    var(--lavender-400);
+
+  /* ============================================================
+     SPACING (4px base grid)
+     ============================================================ */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3rem;
+  --space-9:  4rem;
+  --space-10: 5rem;
+  --space-11: 6rem;
+  --space-12: 8rem;
+
+  --container-max:    1200px;
+  --container-wide:   1340px;
+  --container-narrow: 720px;
+  --gutter:     clamp(1.25rem, 5vw, 4rem);
+  --section-y:  clamp(4rem, 9vw, 8rem);
+
+  /* ============================================================
+     RADIUS
+     ============================================================ */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   16px;
+  --radius-lg:   24px;
+  --radius-xl:   32px;
+  --radius-2xl:  44px;
+  --radius-pill: 999px;
+  --radius-button: var(--radius-pill);
+  --radius-input:  var(--radius-md);
+  --radius-card:   var(--radius-lg);
+  --radius-image:  var(--radius-xl);
+
+  /* ============================================================
+     SHADOWS
+     ============================================================ */
+  --shadow-xs:    0 1px 2px rgba(46, 42, 40, 0.04);
+  --shadow-sm:    0 2px 8px rgba(46, 42, 40, 0.05);
+  --shadow-md:    0 8px 24px rgba(46, 42, 40, 0.06);
+  --shadow-lg:    0 18px 48px rgba(46, 42, 40, 0.08);
+  --shadow-xl:    0 28px 70px rgba(46, 42, 40, 0.10);
+  --shadow-accent: 0 14px 34px rgba(130, 101, 181, 0.18);
+  --shadow-sage:   0 14px 34px rgba(91, 123, 82, 0.16);
+  --shadow-focus:  0 0 0 4px var(--lavender-100);
+  --shadow-card:        var(--shadow-md);
+  --shadow-card-hover:  var(--shadow-lg);
+
+  /* ============================================================
+     MOTION
+     ============================================================ */
+  --dur-fast:    140ms;
+  --dur-base:    240ms;
+  --dur-slow:    420ms;
+  --dur-slower:  700ms;
+  --ease-soft:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-gentle: cubic-bezier(0.33, 0.68, 0.32, 1);
+  --transition-base:  all var(--dur-base) var(--ease-soft);
+  --transition-color: color var(--dur-fast) var(--ease-soft),
+                      background-color var(--dur-fast) var(--ease-soft),
+                      border-color var(--dur-fast) var(--ease-soft);
+}

@@ -1,0 +1,41 @@
+/* Self-hosted fonts — tokens.css loaded separately in editor via enqueue_block_editor_assets */
+
+:root {
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-sans:   'Mulish', system-ui, sans-serif;
+  --font-script: 'Caveat', cursive;
+  --text-strong: #2e2a28;
+  --text-body:   #514b47;
+  --accent-text: #6a5097;
+  --bg-page:     #fbf8f4;
+}
+
+.editor-styles-wrapper {
+  background: var(--bg-page);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--text-strong);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.editor-styles-wrapper a { color: var(--accent-text); }
+
+.editor-styles-wrapper .wp-block {
+  max-width: 720px;
+}
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+  max-width: 1200px;
+}
