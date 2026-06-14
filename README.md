@@ -9,7 +9,7 @@ A collection of WordPress themes covering a range of lifestyle and interest topi
 | `pindichreich-travel`       | Travel & adventure      | ✔       |
 | `pindichreich-sport`        | Sport & fitness         | ✔       |
 | `pindichreich-health`       | Health & wellness       | ✔       |
-| `pindichreich-esoteric`     | Esoteric & spirituality |         |
+| `pindichreich-esoteric`     | Esoteric & spirituality | ✔        |
 | `pindichreich-aurum-arcana` | Mysticism & occult      | ✔       |
 | `pindichreich-mamasglueck`  | Mamas & Parenting       | ✔       |
 | `pindichreich-coaching`     | Coaching & Business     |         |

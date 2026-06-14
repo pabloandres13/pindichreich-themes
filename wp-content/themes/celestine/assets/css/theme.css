@@ -1,0 +1,463 @@
+/* ============================================================
+   Celestine — Component & layout styles
+   Loaded after Astra's style.css + tokens.css. All visual
+   decisions map to tokens in tokens.css.
+   ============================================================ */
+
+/* ============================================================
+   1. Base & ambient page treatment
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+  background-color: var(--surface-page);
+  background-image: var(--gradient-aura), var(--gradient-cosmos);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+img, svg, video { display: block; max-width: 100%; height: auto; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--gold-100); }
+
+p { margin: 0 0 1em; }
+p:last-child { margin-bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  color: var(--text-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+::selection { background: rgba(217, 180, 91, 0.28); color: var(--moon-100); }
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+* { scrollbar-width: thin; scrollbar-color: rgba(217,180,91,0.35) transparent; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(217,180,91,0.3);
+  border-radius: var(--radius-pill);
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* Astra resets — neutralise its light-theme defaults */
+.ast-container, #content, .site-content { background: transparent; }
+
+/* ============================================================
+   2. Layout primitives
+   ============================================================ */
+.cel-section { padding: var(--section-y) var(--gutter); position: relative; }
+.cel-section--night { background: var(--gradient-night); }
+.cel-section--tight { padding-top: clamp(2.5rem, 6vw, 4rem); padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+
+.cel-container { max-width: var(--container); margin-inline: auto; }
+.cel-container--wide { max-width: var(--container-wide); margin-inline: auto; }
+.cel-container--text { max-width: var(--container-text); margin-inline: auto; }
+
+.cel-section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(2.25rem, 5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.cel-section-head__title { font-size: clamp(2rem, 5vw, 3.125rem); color: var(--gold-300); }
+.cel-section-head__lede { color: var(--moon-400); font-size: var(--text-lg); line-height: var(--leading-relaxed); margin: 0; }
+
+/* flex head (title left, link right) */
+.cel-flex-head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--space-6); flex-wrap: wrap; margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+.cel-flex-head .cel-section-head { text-align: left; align-items: flex-start; margin: 0; }
+
+/* Responsive grids */
+.cel-grid { display: grid; gap: var(--space-6); }
+.cel-grid > * { margin-block: 0; max-width: none; }
+.cel-grid--4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.cel-grid--3 { grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); }
+.cel-grid--2 { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+
+/* ============================================================
+   3. Ornament helpers — labels, dividers, starfield, glyphs
+   ============================================================ */
+.cel-label {
+  display: inline-flex; align-items: center; gap: 0.7em;
+  font-family: var(--font-body);
+  font-size: var(--text-xs); font-weight: var(--weight-semibold);
+  text-transform: uppercase; letter-spacing: var(--tracking-label);
+  color: var(--accent); margin: 0;
+}
+.cel-label--center { justify-content: center; }
+.cel-label__glyph, .cel-label::before {
+  font-family: var(--font-display); font-size: 1.3em; letter-spacing: 0; line-height: 1;
+}
+
+.cel-rule { height: 1px; border: 0; background: var(--rule-gold); margin: var(--space-8) 0; }
+
+.cel-glyph { font-family: var(--font-display); color: var(--accent); line-height: 1; display: inline-block; }
+.cel-glyph--silver { color: var(--jewel); }
+
+.cel-starfield {
+  position: absolute; inset: 0;
+  background-image: var(--starfield);
+  background-size: 480px 360px;
+  opacity: 0.6; pointer-events: none; z-index: 0;
+}
+
+/* ============================================================
+   4. Buttons — bespoke + core block button styles
+   ============================================================ */
+.cel-btn {
+  font-family: var(--font-body); font-weight: var(--weight-semibold);
+  letter-spacing: 0.02em; font-size: var(--text-sm);
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6em;
+  border: 0; cursor: pointer; text-decoration: none; white-space: nowrap;
+  padding: 12px 24px; border-radius: var(--radius-sm);
+  transition: transform var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out);
+}
+.cel-btn:active { transform: scale(0.975); }
+.cel-btn--lg { font-size: var(--text-base); padding: 16px 34px; }
+.cel-btn--sm { font-size: var(--text-xs); padding: 8px 16px; }
+.cel-btn--full { width: 100%; }
+
+.cel-btn--primary { background: var(--gradient-gold); color: var(--text-on-gold); box-shadow: var(--shadow-sm); }
+.cel-btn--primary:hover { box-shadow: var(--glow-gold-strong); transform: translateY(-1px); color: var(--text-on-gold); }
+
+.cel-btn--secondary { background: transparent; color: var(--gold-300); box-shadow: inset 0 0 0 1px var(--line-gold-strong); }
+.cel-btn--secondary:hover { color: var(--gold-100); box-shadow: inset 0 0 0 1px var(--gold-300), var(--glow-gold); background: rgba(217,180,91,0.06); }
+
+.cel-btn--ghost { background: transparent; color: var(--gold-300); padding-inline: 4px; border-radius: 0; position: relative; }
+.cel-btn--ghost::after {
+  content: ""; position: absolute; left: 4px; right: 4px; bottom: 2px; height: 1px;
+  background: var(--gold-300); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-celestial);
+}
+.cel-btn--ghost:hover { color: var(--gold-100); }
+.cel-btn--ghost:hover::after { transform: scaleX(1); }
+.cel-btn--ghost:active { transform: none; }
+.cel-btn svg { width: 1.1em; height: 1.1em; }
+
+/* Core block buttons — map block styles to our button looks */
+.wp-block-button__link { border-radius: var(--radius-sm); font-family: var(--font-body); font-weight: var(--weight-semibold); padding: 13px 28px; transition: transform var(--dur-fast) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out); }
+.wp-block-button.is-style-cel-primary .wp-block-button__link { background: var(--gradient-gold); color: var(--text-on-gold); box-shadow: var(--shadow-sm); }
+.wp-block-button.is-style-cel-primary .wp-block-button__link:hover { box-shadow: var(--glow-gold-strong); transform: translateY(-1px); }
+.wp-block-button.is-style-cel-secondary .wp-block-button__link { background: transparent; color: var(--gold-300); box-shadow: inset 0 0 0 1px var(--line-gold-strong); }
+.wp-block-button.is-style-cel-secondary .wp-block-button__link:hover { color: var(--gold-100); box-shadow: inset 0 0 0 1px var(--gold-300), var(--glow-gold); background: rgba(217,180,91,0.06); }
+.wp-block-button.is-style-cel-ghost .wp-block-button__link { background: transparent; color: var(--gold-300); padding-inline: 4px; box-shadow: none; }
+.wp-block-button.is-style-cel-ghost .wp-block-button__link:hover { color: var(--gold-100); box-shadow: 0 1px 0 0 var(--gold-300); }
+.wp-block-button .wp-block-button__link:active { transform: scale(0.975); }
+
+/* ============================================================
+   5. Badges
+   ============================================================ */
+.cel-badge {
+  display: inline-flex; align-items: center; gap: 0.4em;
+  font-family: var(--font-body); font-weight: var(--weight-semibold);
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: var(--radius-pill); line-height: 1; white-space: nowrap;
+}
+.cel-badge--gold { color: var(--gold-300); box-shadow: inset 0 0 0 1px var(--line-gold); background: rgba(217,180,91,0.06); }
+.cel-badge--solid { color: var(--text-on-gold); background: var(--gradient-gold); }
+.cel-badge--jewel { color: var(--silver-200); box-shadow: inset 0 0 0 1px rgba(201,210,227,0.3); background: rgba(201,210,227,0.06); }
+
+/* ============================================================
+   6. Header (sticky translucent chrome)
+   ============================================================ */
+.cel-header {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-6);
+  padding: 16px var(--gutter);
+  background: rgba(10, 13, 36, 0.6);
+  backdrop-filter: var(--blur-chrome); -webkit-backdrop-filter: var(--blur-chrome);
+  border-bottom: 1px solid var(--line-moon-soft);
+  transition: background var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.cel-header.is-scrolled { background: rgba(8, 10, 30, 0.86); border-bottom-color: var(--line-gold); }
+
+.cel-header__brand { display: flex; align-items: center; gap: 12px; }
+.cel-header__brand img { width: 38px; height: 38px; filter: drop-shadow(0 0 10px rgba(217,180,91,0.35)); }
+.cel-header__word { font-family: var(--font-display); font-weight: var(--weight-medium); font-size: 1.7rem; color: var(--gold-300); letter-spacing: 0.04em; line-height: 1; }
+
+.cel-header__nav { display: flex; align-items: center; gap: 30px; }
+.cel-header__nav ul { display: flex; align-items: center; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.cel-header__nav a {
+  font-family: var(--font-body); font-size: var(--text-sm); font-weight: var(--weight-medium);
+  color: var(--moon-200); padding: 4px 0; position: relative;
+}
+.cel-header__nav a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: var(--gold-300); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-celestial);
+}
+.cel-header__nav a:hover, .cel-header__nav .current-menu-item > a, .cel-header__nav .current a { color: var(--gold-200); }
+.cel-header__nav a:hover::after, .cel-header__nav .current-menu-item > a::after, .cel-header__nav .current a::after { transform: scaleX(1); }
+
+.cel-header__actions { display: flex; align-items: center; gap: 14px; }
+
+.cel-header__toggle {
+  display: none; background: transparent; border: 0; cursor: pointer; color: var(--gold-300);
+  padding: 6px; border-radius: var(--radius-sm);
+}
+.cel-header__toggle .hidden { display: none; }
+
+.cel-header__mobile {
+  display: none; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-4) var(--gutter) var(--space-8);
+  background: var(--surface-overlay); backdrop-filter: var(--blur-chrome); -webkit-backdrop-filter: var(--blur-chrome);
+  border-bottom: 1px solid var(--line-gold);
+}
+.cel-header__mobile.is-open { display: flex; }
+.cel-header__mobile ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.cel-header__mobile a { display: block; padding: 12px 4px; font-family: var(--font-display); font-size: var(--text-xl); color: var(--moon-100); border-bottom: 1px solid var(--line-moon-soft); }
+.cel-header__mobile a:hover { color: var(--gold-300); }
+.cel-header__mobile-cta { margin-top: var(--space-4); }
+
+/* ============================================================
+   7. Hero
+   ============================================================ */
+.cel-hero { overflow: hidden; text-align: center; padding: clamp(5rem, 16vh, 11rem) var(--gutter) clamp(4rem, 12vh, 8rem); }
+.cel-hero__veil { position: absolute; inset: 0; background: var(--gradient-moon-veil); pointer-events: none; z-index: 0; }
+.cel-hero__inner { position: relative; z-index: 1; max-width: 820px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; gap: var(--space-6); }
+.cel-hero__inner > * { margin-block: 0; }
+.cel-hero__emblem { width: 96px; height: 96px; filter: drop-shadow(0 0 24px rgba(217,180,91,0.4)); margin-inline: auto; }
+.cel-hero__title { font-size: var(--text-6xl); line-height: 1.14; color: var(--gold-200); letter-spacing: -0.015em; }
+.cel-hero__title em { font-family: var(--font-script); font-style: normal; color: var(--silver-400); font-size: 1.05em; line-height: 1; }
+.cel-hero__sub { font-size: clamp(1.125rem, 2.4vw, 1.4rem); color: var(--moon-200); max-width: 560px; line-height: 1.6; text-wrap: pretty; }
+.cel-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: var(--space-2); }
+.cel-hero__cta.wp-block-buttons { gap: 14px; }
+
+/* ============================================================
+   8. Offering / pathway tiles
+   ============================================================ */
+.cel-tile {
+  position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+  border-radius: var(--radius-lg); box-shadow: var(--edge-gold); background: var(--surface-card);
+  padding: 30px 28px; height: 100%;
+  transition: transform var(--dur-base) var(--ease-celestial), box-shadow var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+}
+.cel-tile > * { margin-block: 0; }
+.cel-tile:hover { transform: translateY(-4px); box-shadow: var(--edge-gold), var(--glow-gold); background: rgba(22,26,61,0.7); }
+.cel-tile__badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 60px; height: 60px; border-radius: var(--radius-pill);
+  box-shadow: var(--edge-gold);
+  background: radial-gradient(circle at 50% 35%, rgba(217,180,91,0.16), rgba(217,180,91,0) 70%);
+  font-family: var(--font-display); font-size: var(--text-2xl); color: var(--accent);
+  transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.cel-tile:hover .cel-tile__badge { box-shadow: var(--edge-gold), var(--glow-gold); }
+.cel-tile__title { font-family: var(--font-display); font-weight: var(--weight-medium); font-size: 1.625rem; line-height: 1.15; color: var(--gold-300); }
+.cel-tile__text { color: var(--moon-400); font-size: var(--text-sm); line-height: 1.6; }
+
+/* ============================================================
+   9. Featured (split media + body)
+   ============================================================ */
+.cel-featured.wp-block-columns { align-items: center; gap: clamp(1.75rem, 5vw, 4rem); }
+.cel-featured__media {
+  position: relative; aspect-ratio: 4/3; border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--edge-gold), var(--shadow-lg);
+  background: radial-gradient(70% 70% at 60% 30%, rgba(46,28,82,0.85), var(--cosmos-900));
+  display: flex; align-items: center; justify-content: center;
+}
+.cel-featured__media img { width: 100%; height: 100%; object-fit: cover; }
+.cel-featured__media .cel-glyph { font-size: 120px; color: var(--gold-500); opacity: 0.55; }
+.cel-featured__body > * { margin-block: 0; }
+.cel-featured__body { display: flex; flex-direction: column; gap: var(--space-5); align-items: flex-start; }
+.cel-featured__title { font-size: clamp(1.875rem, 4vw, 2.875rem); color: var(--gold-300); }
+.cel-featured__text { color: var(--moon-400); font-size: var(--text-base); line-height: var(--leading-relaxed); }
+.cel-featured__price { font-family: var(--font-display); font-size: var(--text-xl); color: var(--moon-100); }
+.cel-featured__price small { font-family: var(--font-body); font-size: var(--text-xs); color: var(--moon-500); }
+.cel-featured__meta { display: flex; gap: var(--space-5); align-items: center; flex-wrap: wrap; }
+
+/* ============================================================
+   10. About teaser
+   ============================================================ */
+.cel-about.wp-block-columns { align-items: center; gap: clamp(1.75rem, 5vw, 4rem); }
+.cel-about__portrait {
+  aspect-ratio: 3/4; border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--edge-gold), var(--shadow-lg);
+  background: linear-gradient(180deg, var(--violet-800), var(--cosmos-900));
+  display: flex; align-items: flex-end; justify-content: center; position: relative;
+}
+.cel-about__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.cel-about__portrait .cel-glyph { font-size: 110px; color: var(--gold-500); opacity: 0.4; margin-bottom: 30px; }
+.cel-about__body > * { margin-block: 0; }
+.cel-about__body { display: flex; flex-direction: column; gap: var(--space-5); align-items: flex-start; }
+.cel-about__quote { font-family: var(--font-display); font-style: italic; font-size: clamp(1.5rem, 3vw, 2.125rem); line-height: 1.35; color: var(--moon-100); }
+.cel-about__text { color: var(--moon-400); font-size: var(--text-base); line-height: var(--leading-relaxed); }
+
+/* ============================================================
+   11. Testimonials
+   ============================================================ */
+.cel-quote {
+  position: relative; border-radius: var(--radius-lg); box-shadow: var(--edge-gold);
+  background: var(--surface-card); padding: 32px 30px 28px;
+  display: flex; flex-direction: column; gap: var(--space-5); height: 100%;
+}
+.cel-quote > * { margin-block: 0; }
+.cel-quote__stars { color: var(--gold-300); font-size: 14px; letter-spacing: 4px; }
+.cel-quote__body { font-family: var(--font-display); font-style: italic; font-size: 1.3125rem; line-height: 1.5; color: var(--moon-100); }
+.cel-quote__name { font-weight: var(--weight-bold); font-size: var(--text-sm); color: var(--moon-200); }
+.cel-quote__role { font-size: var(--text-xs); color: var(--moon-500); }
+.cel-quote__foot { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
+
+/* ============================================================
+   12. Article / journal cards
+   ============================================================ */
+.cel-article-grid { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.cel-article {
+  display: flex; flex-direction: column; border-radius: var(--radius-lg);
+  box-shadow: var(--edge-gold); background: var(--surface-card); overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-celestial), box-shadow var(--dur-base) var(--ease-out);
+}
+.cel-article:hover { transform: translateY(-4px); box-shadow: var(--edge-gold), var(--glow-gold); }
+.cel-article__media { position: relative; aspect-ratio: 3/2; overflow: hidden; background: var(--gradient-night); display: flex; align-items: center; justify-content: center; }
+.cel-article__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-slow) var(--ease-out); }
+.cel-article:hover .cel-article__media img { transform: scale(1.04); }
+.cel-article__glyph { font-family: var(--font-display); font-size: 52px; color: var(--gold-500); opacity: 0.45; }
+.cel-article__cat { position: absolute; top: 14px; left: 14px; z-index: 2; }
+.cel-article__body { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.cel-article__meta { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--moon-500); }
+.cel-article__title { font-family: var(--font-display); font-weight: var(--weight-medium); font-size: var(--text-xl); line-height: 1.18; color: var(--gold-300); transition: color var(--dur-base) var(--ease-out); margin: 0; }
+.cel-article__title a { color: inherit; }
+.cel-article:hover .cel-article__title { color: var(--gold-100); }
+.cel-article__excerpt { color: var(--moon-400); font-size: var(--text-sm); line-height: 1.6; margin: 0; }
+.cel-article__more { margin-top: auto; padding-top: 6px; font-size: var(--text-xs); font-weight: var(--weight-semibold); color: var(--gold-300); }
+
+/* ============================================================
+   13. Newsletter — "Join the Circle" band
+   ============================================================ */
+.cel-circle {
+  position: relative; overflow: hidden; border-radius: var(--radius-lg);
+  box-shadow: var(--edge-gold), var(--shadow-lg); background: var(--gradient-night);
+  padding: clamp(2.25rem, 6vw, 4rem); text-align: center;
+}
+.cel-circle__inner { position: relative; z-index: 1; max-width: 540px; margin-inline: auto; }
+.cel-circle__glyph { font-family: var(--font-display); color: var(--gold-300); font-size: var(--text-2xl); }
+.cel-circle__label { font-size: 12px; font-weight: var(--weight-semibold); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--accent); margin: 10px 0 0; }
+.cel-circle__title { font-family: var(--font-display); font-weight: var(--weight-medium); font-size: clamp(1.75rem, 4vw, 2.5rem); line-height: 1.1; color: var(--gold-300); margin: 8px 0 10px; }
+.cel-circle__text { color: var(--moon-400); margin: 0 0 24px; font-size: var(--text-base); line-height: 1.6; }
+.cel-circle__form { display: flex; gap: 10px; max-width: 440px; margin-inline: auto; }
+.cel-circle__input {
+  flex: 1; font-family: var(--font-body); font-size: var(--text-base); color: var(--moon-100);
+  background: var(--surface-input); border: 0; box-shadow: inset 0 0 0 1px var(--line-gold);
+  border-radius: var(--radius-sm); padding: 13px 16px; transition: box-shadow var(--dur-base) var(--ease-out);
+}
+.cel-circle__input::placeholder { color: var(--moon-600); }
+.cel-circle__input:focus { outline: none; box-shadow: inset 0 0 0 1px var(--gold-500), var(--glow-gold); }
+.cel-circle__note { font-size: var(--text-xs); color: var(--moon-500); margin: 14px 0 0; }
+.cel-circle__consent { display: flex; gap: 8px; align-items: flex-start; text-align: left; margin: 16px 0 0; font-size: var(--text-xs); color: var(--moon-500); line-height: 1.5; }
+.cel-circle__consent input { margin-top: 3px; accent-color: var(--gold-500); }
+.cel-circle__consent a { color: var(--gold-300); }
+
+/* ============================================================
+   14. Footer
+   ============================================================ */
+.cel-footer { padding: clamp(3rem, 7vw, 5rem) var(--gutter) 36px; border-top: 1px solid var(--line-moon-soft); position: relative; }
+.cel-footer__top { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 36px; max-width: var(--container); margin-inline: auto; }
+.cel-footer__brand img { width: 44px; height: 44px; margin-bottom: 14px; filter: drop-shadow(0 0 12px rgba(217,180,91,0.35)); }
+.cel-footer__tag { font-family: var(--font-script); font-size: var(--text-xl); color: var(--moon-400); margin: 0; }
+.cel-footer__col h4 { font-family: var(--font-body); font-size: 12px; font-weight: var(--weight-bold); letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; }
+.cel-footer__col a { display: block; color: var(--moon-400); font-size: var(--text-sm); padding: 5px 0; }
+.cel-footer__col a:hover { color: var(--gold-200); }
+.cel-footer__rule { max-width: var(--container); margin: clamp(2.25rem,5vw,3.5rem) auto 24px; height: 1px; background: var(--rule-gold); }
+.cel-footer__bottom { max-width: var(--container); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; color: var(--moon-500); font-size: var(--text-xs); flex-wrap: wrap; }
+.cel-footer__social { display: flex; gap: 14px; }
+.cel-footer__social a { color: var(--moon-400); }
+.cel-footer__social a:hover { color: var(--gold-300); }
+
+/* ============================================================
+   15. Editorial / single & page prose
+   ============================================================ */
+.cel-page-hero { text-align: center; padding: clamp(5rem, 12vh, 8rem) var(--gutter) clamp(2rem, 6vw, 3.5rem); position: relative; }
+.cel-page-hero__title { font-size: clamp(2.125rem, 5.5vw, 3.75rem); color: var(--gold-200); line-height: 1.08; }
+.cel-page-hero__meta { display: flex; gap: 16px; align-items: center; justify-content: center; color: var(--moon-500); font-size: var(--text-sm); margin-top: var(--space-4); }
+
+.cel-prose { color: var(--moon-200); font-size: var(--text-lg); line-height: 1.8; }
+.cel-prose > * { margin-block: 0 1.2em; }
+.cel-prose h2 { font-family: var(--font-display); font-size: var(--text-2xl); color: var(--gold-300); margin: 1.5em 0 0.5em; }
+.cel-prose h3 { font-family: var(--font-display); font-size: var(--text-xl); color: var(--gold-300); margin: 1.3em 0 0.4em; }
+.cel-prose a { text-decoration: underline; text-decoration-color: var(--line-gold-strong); text-underline-offset: 3px; }
+.cel-prose blockquote { margin: 1.5em 0; padding-left: 24px; border-left: 2px solid var(--gold-500); font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); color: var(--moon-100); line-height: 1.4; }
+.cel-prose img { border-radius: var(--radius-md); }
+.cel-prose code { background: var(--surface-input); padding: 2px 6px; border-radius: var(--radius-xs); font-size: 0.9em; }
+
+.cel-cover { aspect-ratio: 16/9; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 40px; box-shadow: var(--edge-gold); }
+.cel-cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.cel-pagination { display: flex; justify-content: center; gap: var(--space-3); margin-top: var(--space-12); }
+.cel-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; padding: 0 12px; border-radius: var(--radius-sm); color: var(--moon-300); box-shadow: inset 0 0 0 1px var(--line-moon); }
+.cel-pagination .page-numbers.current { color: var(--text-on-gold); background: var(--gradient-gold); box-shadow: none; }
+.cel-pagination a.page-numbers:hover { color: var(--gold-200); box-shadow: inset 0 0 0 1px var(--line-gold); }
+
+/* ============================================================
+   16. Cookie banner
+   ============================================================ */
+.cel-cookie {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+  width: min(560px, calc(100% - 32px)); z-index: 200;
+  background: var(--surface-overlay); backdrop-filter: var(--blur-chrome); -webkit-backdrop-filter: var(--blur-chrome);
+  border-radius: var(--radius-lg); box-shadow: var(--edge-gold), var(--shadow-xl);
+  padding: 24px 26px;
+}
+.cel-cookie[hidden] { display: none; }
+.cel-cookie__title { font-family: var(--font-display); font-size: var(--text-xl); color: var(--gold-300); margin: 0 0 6px; }
+.cel-cookie__text { font-size: var(--text-sm); color: var(--moon-400); margin: 0 0 18px; line-height: 1.6; }
+.cel-cookie__text a { color: var(--gold-300); }
+.cel-cookie__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ============================================================
+   17. Reveal animation (enhances already-visible content)
+   ============================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  .cel-reveal { opacity: 0; transform: translateY(18px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+  .cel-reveal.is-visible { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   18. Responsive
+   ============================================================ */
+@media (max-width: 900px) {
+  .cel-header__nav { display: none; }
+  .cel-header__toggle { display: inline-flex; }
+  .cel-footer__top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .cel-footer__top { grid-template-columns: 1fr; }
+  .cel-footer__bottom { flex-direction: column; align-items: flex-start; }
+  .cel-circle__form { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

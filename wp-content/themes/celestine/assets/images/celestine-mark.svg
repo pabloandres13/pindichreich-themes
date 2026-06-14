@@ -1,0 +1,17 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Celestine">
+  <defs>
+    <linearGradient id="celGold" x1="20" y1="20" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F6ECCB"/>
+      <stop offset="0.5" stop-color="#D9B45B"/>
+      <stop offset="1" stop-color="#A87F33"/>
+    </linearGradient>
+    <mask id="celCrescent">
+      <rect width="120" height="120" fill="black"/>
+      <circle cx="60" cy="60" r="40" fill="white"/>
+      <circle cx="76" cy="50" r="34" fill="black"/>
+    </mask>
+  </defs>
+  <circle cx="60" cy="60" r="40" fill="url(#celGold)" mask="url(#celCrescent)"/>
+  <path d="M84 40 L86.4 50.2 L96 52 L86.4 53.8 L84 64 L81.6 53.8 L72 52 L81.6 50.2 Z" fill="#F6ECCB"/>
+  <path d="M44 86 L45.1 90.4 L49 91 L45.1 91.6 L44 96 L42.9 91.6 L39 91 L42.9 90.4 Z" fill="#E8C97A" opacity="0.85"/>
+</svg>

@@ -1,0 +1,31 @@
+/* ============================================================
+   Celestine — Block editor canvas styles
+   Mirrors the front-end cosmos treatment so block patterns
+   preview the way they render live. tokens.css + theme.css are
+   also loaded into the editor via add_editor_style().
+   ============================================================ */
+.editor-styles-wrapper {
+  background-color: var(--surface-page);
+  background-image: var(--gradient-aura), var(--gradient-cosmos);
+  background-attachment: fixed;
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+/* Headings render in the gold display serif inside the editor too */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4 {
+  font-family: var(--font-display);
+  color: var(--text-heading);
+  font-weight: var(--weight-medium);
+}
+
+.editor-styles-wrapper p { color: var(--text-body); }
+.editor-styles-wrapper a { color: var(--link); }
+
+/* Make the default block appender / placeholders legible on dark */
+.editor-styles-wrapper .block-editor-block-list__block { color: var(--text-body); }

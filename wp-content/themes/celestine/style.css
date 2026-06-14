@@ -1,0 +1,17 @@
+/*
+Theme Name:  Celestine
+Theme URI:   https://pindichreich.de
+Description: Celestine — a dark celestial Astra child theme for an esoteric & spirituality brand (astrology, tarot, meditation, crystals & ritual goods). Spiritual-luxury aesthetic: deep cosmic backgrounds, luminous gold linework, moonlight-silver glow. Self-hosted Cormorant Garamond, Mulish & Pinyon Script. Page-driven, fully editable home page via block patterns.
+Version:     1.0.0
+Author:      Pindichreich
+Author URI:  https://pindichreich.de
+License:     MPL-2.0
+License URI: https://www.mozilla.org/en-US/MPL/2.0/
+Template:    astra
+Text Domain: celestine
+Tags:        esoteric, spirituality, astrology, tarot, dark, celestial, astra-child, gold, editor-style, block-patterns
+*/
+
+/* All component & layout styles live in assets/css/theme.css.
+   Design tokens (self-hosted fonts + CSS custom properties) live in assets/css/tokens.css.
+   This file only carries the theme header and is enqueued first so child styles can override Astra. */
