@@ -5,20 +5,20 @@ A collection of WordPress themes covering a range of lifestyle and interest topi
 ## Planned themes
 
 | Theme                       | Topic                   | Developed |
-|-----------------------------|-------------------------|---------|
-| `pindichreich-travel`       | Travel & adventure      | ✔       |
-| `pindichreich-sport`        | Sport & fitness         | ✔       |
-| `pindichreich-health`       | Health & wellness       | ✔       |
-| `pindichreich-esoteric`     | Esoteric & spirituality | ✔        |
-| `pindichreich-aurum-arcana` | Mysticism & occult      | ✔       |
-| `pindichreich-mamasglueck`  | Mamas & Parenting       | ✔       |
-| `pindichreich-coaching`     | Coaching & Business     |         |
-| `pindichreich-finance`      | Finance                 |         |
-| `pindichreich-diy`          | DIY and creative        |         |
-| `pindichreich-garten`       | Garten and Plants       |         |
-| `pindichreich-nutrition`    | Nutrition               |         |
-| `pindichreich-minimalismus` | Minimalismus and order  |         |
-| `pindichreich-culinary`     | Healthy Food            | ✔       |
+|-----------------------------|-------------------------|--------|
+| `pindichreich-travel`       | Travel & adventure      | ✔      |
+| `pindichreich-sport`        | Sport & fitness         | ✔      |
+| `pindichreich-health`       | Health & wellness       | ✔      |
+| `pindichreich-esoteric`     | Esoteric & spirituality | ✔      |
+| `pindichreich-aurum-arcana` | Mysticism & occult      | ✔      |
+| `pindichreich-mamasglueck`  | Mamas & Parenting       | ✔      |
+| `pindichreich-coaching`     | Coaching & Business     | ✔      |
+| `pindichreich-finance`      | Finance                 |        |
+| `pindichreich-diy`          | DIY and creative        |        |
+| `pindichreich-garten`       | Garten and Plants       |        |
+| `pindichreich-nutrition`    | Nutrition               |        |
+| `pindichreich-minimalismus` | Minimalismus and order  |        |
+| `pindichreich-culinary`     | Healthy Food            | ✔      |
 
 More themes to be added over time.
 

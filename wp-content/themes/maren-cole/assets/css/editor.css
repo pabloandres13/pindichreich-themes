@@ -1,0 +1,41 @@
+/* ============================================================
+   Maren Cole — Block editor canvas styles
+   Mirrors front-end tokens so patterns preview accurately.
+   ============================================================ */
+
+.editor-styles-wrapper {
+  background: var(--surface-page);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-body);
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4 {
+  font-family: var(--font-heading);
+  color: var(--text-strong);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.editor-styles-wrapper .mc-accent-italic,
+.editor-styles-wrapper em.mc-accent-italic {
+  font-style: italic;
+  color: var(--text-accent);
+  font-weight: var(--weight-regular);
+}
+
+/* Give the editor canvas the same comfortable measure as the front end. */
+.editor-styles-wrapper .mc-container { max-width: var(--container); }
+
+/* Dark sections render their text light inside the editor too. */
+.editor-styles-wrapper .mc-section--dark,
+.editor-styles-wrapper .mc-testimonials,
+.editor-styles-wrapper .mc-final { color: var(--sand-300); }
+.editor-styles-wrapper .mc-section--dark h2,
+.editor-styles-wrapper .mc-testimonials h2,
+.editor-styles-wrapper .mc-final h2 { color: var(--cream-50); }

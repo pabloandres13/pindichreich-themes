@@ -12,5 +12,6 @@ A monorepo of WordPress Astra child themes. Each theme has its own product and d
 | celestine     | [docs/celestine/PRODUCT.md](docs/celestine/PRODUCT.md)         | `wp-content/themes/celestine/`    |
 | culinary      | [docs/culinary/PRODUCT.md](docs/culinary/PRODUCT.md)           | `wp-content/themes/culinary/`     |
 | mamaglueck    | [docs/mamaglueck/PRODUCT.md](docs/mamaglueck/PRODUCT.md)       | `wp-content/themes/mamaglueck/`   |
+| maren-cole    | [docs/maren-cole/PRODUCT.md](docs/maren-cole/PRODUCT.md)       | `wp-content/themes/maren-cole/`   |
 
 > When working on a specific theme, point `/impeccable` at `docs/<theme>/PRODUCT.md` for full context.

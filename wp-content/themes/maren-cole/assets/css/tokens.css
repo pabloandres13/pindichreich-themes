@@ -1,0 +1,257 @@
+/* ============================================================
+   Maren Cole — Design Tokens
+   Warm-premium coaching system: terracotta/clay accent on a
+   warm off-white canvas, warm near-black ink. ONE confident accent.
+   Self-hosted fonts (no external requests).
+   ============================================================ */
+
+/* ---- Newsreader (display serif, variable opsz/wght, normal + italic) ---- */
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/newsreader-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/newsreader-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/newsreader-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('../fonts/newsreader-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---- Hanken Grotesk (UI/body sans, variable wght, normal + italic) ---- */
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Hanken Grotesk';
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/hanken-grotesk-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* ============================================================
+     COLOR — warm-premium, single clay accent
+     ============================================================ */
+  --white:      #FFFFFF;
+  --cream-50:   #FBF8F4;   /* warm off-white — primary page tint */
+  --cream-100:  #F5EFE7;
+  --cream-200:  #ECE3D6;
+  --sand-300:   #DDD0BE;
+  --taupe-400:  #B8A992;
+  --stone-500:  #8B7E6C;
+  --stone-600:  #61584B;
+  --ink-700:    #3C362C;
+  --ink-800:    #272118;
+  --ink-900:    #1A1610;   /* warm near-black */
+
+  /* Accent: terracotta / clay */
+  --clay-50:    #FBEEE6;
+  --clay-100:   #F4D8C7;
+  --clay-200:   #E9B79C;
+  --clay-300:   #DD9670;
+  --clay-400:   #CF7850;
+  --clay-500:   #C0613D;   /* primary accent */
+  --clay-600:   #A44E2E;   /* hover */
+  --clay-700:   #843E24;   /* active / deep */
+
+  /* Supporting deep tone: evergreen (dark bands, rare) */
+  --forest-700: #2E3A31;
+  --forest-800: #25302A;
+  --forest-900: #1E2721;
+
+  /* Functional */
+  --green-600:  #3F7D58;
+  --amber-600:  #BE8A2D;
+  --red-600:    #B23B2E;
+
+  /* Semantic — text */
+  --text-strong:    var(--ink-900);
+  --text-body:      var(--ink-700);
+  --text-muted:     var(--stone-600);
+  --text-subtle:    var(--stone-500);
+  --text-inverse:   var(--cream-50);
+  --text-on-accent: #FFFFFF;
+  --text-accent:    var(--clay-600);
+
+  /* Semantic — surfaces */
+  --surface-page:    var(--cream-50);
+  --surface-raised:  var(--white);
+  --surface-card:    var(--white);
+  --surface-sunken:  var(--cream-100);
+  --surface-tint:    var(--cream-100);
+  --surface-inverse: var(--ink-900);
+  --surface-forest:  var(--forest-800);
+
+  /* Semantic — accent roles */
+  --accent:          var(--clay-500);
+  --accent-hover:    var(--clay-600);
+  --accent-active:   var(--clay-700);
+  --accent-contrast: #FFFFFF;
+  --accent-soft:     var(--clay-50);
+  --accent-soft-2:   var(--clay-100);
+
+  /* Semantic — borders */
+  --border-subtle:  rgba(26,22,16,0.07);
+  --border-default: rgba(26,22,16,0.12);
+  --border-strong:  rgba(26,22,16,0.20);
+  --border-accent:  var(--clay-300);
+  --border-inverse: rgba(255,255,255,0.16);
+
+  /* Feedback */
+  --success: var(--green-600);
+  --warning: var(--amber-600);
+  --error:   var(--red-600);
+  --focus-ring: var(--clay-500);
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+  --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: var(--font-serif);
+  --font-heading: var(--font-serif);
+  --font-body:    var(--font-sans);
+  --font-ui:      var(--font-sans);
+  --font-eyebrow: var(--font-sans);
+
+  --text-xs:   0.75rem;     /* 12 */
+  --text-sm:   0.875rem;    /* 14 */
+  --text-base: 1rem;        /* 16 */
+  --text-md:   1.0625rem;   /* 17 — body */
+  --text-lg:   1.1875rem;   /* 19 */
+  --text-xl:   1.375rem;    /* 22 */
+  --text-2xl:  1.75rem;     /* 28 */
+  --text-3xl:  2.1875rem;   /* 35 */
+  --text-4xl:  2.75rem;     /* 44 */
+  --text-5xl:  3.5rem;      /* 56 */
+  --text-6xl:  4.5rem;      /* 72 */
+
+  --display-lg: clamp(2.75rem, 1.6rem + 4.6vw, 4.75rem);
+  --display-md: clamp(2.25rem, 1.5rem + 3vw, 3.5rem);
+  --display-sm: clamp(1.875rem, 1.4rem + 2vw, 2.625rem);
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  --leading-tight:   1.08;
+  --leading-snug:    1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tighter: -0.03em;
+  --tracking-tight:   -0.015em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-eyebrow: 0.18em;
+
+  /* ============================================================
+     SPACING / LAYOUT (4px base)
+     ============================================================ */
+  --space-0:  0;
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.5rem;
+  --space-6:  2rem;
+  --space-7:  2.5rem;
+  --space-8:  3rem;
+  --space-9:  4rem;
+  --space-10: 5rem;
+  --space-11: 6rem;
+  --space-12: 8rem;
+
+  --section-y:       clamp(4rem, 2.5rem + 6vw, 8rem);
+  --section-y-tight: clamp(3rem, 2rem + 4vw, 5.5rem);
+
+  --container:      1200px;
+  --container-wide: 1320px;
+  --container-text: 720px;
+  --gutter:         clamp(1.25rem, 0.5rem + 3vw, 2.5rem);
+
+  /* ============================================================
+     RADII
+     ============================================================ */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   18px;
+  --radius-xl:   28px;
+  --radius-2xl:  40px;
+  --radius-pill: 999px;
+  --radius-card:  var(--radius-lg);
+  --radius-input: var(--radius-sm);
+
+  /* ============================================================
+     SHADOWS (warm-tinted, soft)
+     ============================================================ */
+  --shadow-xs:  0 1px 2px rgba(38,33,24,0.06);
+  --shadow-sm:  0 2px 6px rgba(38,33,24,0.07);
+  --shadow-md:  0 8px 24px -6px rgba(38,33,24,0.12), 0 2px 6px rgba(38,33,24,0.05);
+  --shadow-lg:  0 20px 48px -12px rgba(38,33,24,0.18), 0 4px 12px rgba(38,33,24,0.06);
+  --shadow-xl:  0 36px 80px -20px rgba(38,33,24,0.26);
+  --shadow-accent: 0 14px 32px -10px rgba(192,97,61,0.45);
+
+  /* ============================================================
+     MOTION / Z
+     ============================================================ */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    140ms;
+  --dur-base:    220ms;
+  --dur-slow:    420ms;
+
+  --z-base:    1;
+  --z-sticky:  100;
+  --z-overlay: 1000;
+  --z-modal:   1100;
+  --z-toast:   1200;
+}
