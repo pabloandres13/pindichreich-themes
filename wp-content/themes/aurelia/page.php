@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	</section>
 
 	<section class="au-section au-section--white" style="padding-top:var(--space-8)">
-		<div class="au-container au-container--narrow">
+		<div class="au-container">
 			<div class="au-page-content entry-content">
 				<?php the_content(); ?>
 			</div>

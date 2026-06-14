@@ -1165,6 +1165,16 @@ button.aa-tag:hover {
 }
 
 /* Entry content (WordPress default) */
+
+/* Page body text. The width comes from the parent .aa-container (1200px on
+   desktop, padded on mobile) — no per-template inline max-width needed. */
+.entry-content {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
 .aa-art__body .entry-content p {
   font-family: var(--font-body);
   font-size: 20px;
@@ -1567,3 +1577,110 @@ button.aa-tag:hover {
   .aa-svc__grid { grid-template-columns: 1fr; }
   .aa-test__grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   GUTENBERG BLOCK COMPATIBILITY
+   The home page is built from block patterns (see inc/block-patterns.php)
+   so a non-technical owner can edit every section in the editor. These rules
+   let native core blocks (buttons, columns, image, group) reproduce the same
+   composition the PHP template parts render for the demo fallback.
+   ============================================================ */
+
+/* Native core/button rendered as the gold aa-btn family.
+   Applied via the is-style-aa-* block styles registered in inc/block-support.php. */
+.wp-block-button.is-style-aa-primary > .wp-block-button__link,
+.wp-block-button.is-style-aa-secondary > .wp-block-button__link,
+.wp-block-button.is-style-aa-ghost > .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  padding: 0.9em 1.6em;
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-soft),
+              color var(--dur-base) var(--ease-soft),
+              border-color var(--dur-base) var(--ease-soft),
+              box-shadow var(--dur-base) var(--ease-soft),
+              transform var(--dur-fast) var(--ease-soft);
+}
+.wp-block-button.is-style-aa-primary > .wp-block-button__link {
+  background: var(--accent);
+  color: var(--on-accent);
+  border-color: var(--accent);
+}
+.wp-block-button.is-style-aa-primary > .wp-block-button__link:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--on-accent);
+  box-shadow: var(--glow-soft);
+}
+.wp-block-button.is-style-aa-secondary > .wp-block-button__link {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--hairline-strong);
+}
+.wp-block-button.is-style-aa-secondary > .wp-block-button__link:hover {
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: var(--glow-soft);
+}
+.wp-block-button.is-style-aa-ghost > .wp-block-button__link {
+  background: transparent;
+  color: var(--accent);
+  border-color: transparent;
+  padding-inline: 0.4em;
+}
+.wp-block-button.is-style-aa-ghost > .wp-block-button__link:hover {
+  color: var(--accent-hover);
+  box-shadow: inset 0 -1px 0 var(--accent-hover);
+  border-radius: 0;
+}
+.wp-block-button.aa-btn--lg > .wp-block-button__link {
+  font-size: var(--text-base);
+  padding: 1.05em 2em;
+  letter-spacing: var(--tracking-label);
+}
+.wp-block-button.is-style-aa-primary > .wp-block-button__link:active,
+.wp-block-button.is-style-aa-secondary > .wp-block-button__link:active,
+.wp-block-button.is-style-aa-ghost > .wp-block-button__link:active { transform: translateY(1px); }
+
+/* Section-head group (label + heading) stays centered even if WP wraps
+   children in an inner container. */
+.aa-sec__head > .wp-block-group__inner-container { display: contents; }
+.aa-sec__head .wp-block-heading { margin: 0; }
+
+/* Flush variant for stacked sections (e.g. latest dispatches, newsletter). */
+.aa-sec--flush { padding-top: 0; }
+
+/* Two-column bands built with core/columns: force the grid composition over
+   the default flex columns (higher specificity wins regardless of load order). */
+.wp-block-columns.aa-offering__inner { display: grid; }
+.wp-block-columns.aa-about { display: grid; }
+.aa-offering__inner.wp-block-columns,
+.aa-about.wp-block-columns { gap: 64px; }
+.aa-about.wp-block-columns { gap: 56px; }
+.aa-offering__inner > .wp-block-column,
+.aa-about > .wp-block-column { flex-basis: auto; }
+
+/* Image frames (offering media, about media, portrait) fill their aspect box. */
+.aa-offering__media .wp-block-image,
+.aa-about__media .wp-block-image,
+.aa-offering__media figure,
+.aa-about__media figure { margin: 0; height: 100%; }
+.aa-offering__media .wp-block-image img,
+.aa-about__media .wp-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Existing .aa-offering h2/p and .aa-about h2/p element rules already style the
+   native heading/paragraph blocks — no extra spacing rules needed here. */

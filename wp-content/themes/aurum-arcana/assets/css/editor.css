@@ -38,3 +38,43 @@
   color: #EDE6D6;
   margin: 40px 0;
 }
+
+/* ============================================================
+   BLOCK PATTERN CTA BUTTONS (editor canvas)
+   Mirror the front-end is-style-aa-* button styling so CTAs read
+   correctly while the owner edits the home page in the block editor.
+   ============================================================ */
+.editor-styles-wrapper .wp-block-button.is-style-aa-primary > .wp-block-button__link,
+.editor-styles-wrapper .wp-block-button.is-style-aa-secondary > .wp-block-button__link,
+.editor-styles-wrapper .wp-block-button.is-style-aa-ghost > .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.9em 1.6em;
+  border: 1px solid transparent;
+}
+.editor-styles-wrapper .wp-block-button.is-style-aa-primary > .wp-block-button__link {
+  background: #C8A24A;
+  color: #15110C;
+  border-color: #C8A24A;
+}
+.editor-styles-wrapper .wp-block-button.is-style-aa-secondary > .wp-block-button__link {
+  background: transparent;
+  color: #C8A24A;
+  border-color: rgba(200, 162, 74, 0.5);
+}
+.editor-styles-wrapper .wp-block-button.is-style-aa-ghost > .wp-block-button__link {
+  background: transparent;
+  color: #C8A24A;
+  border-color: transparent;
+}
+.editor-styles-wrapper .wp-block-button.aa-btn--lg > .wp-block-button__link {
+  font-size: 16px;
+  padding: 1.05em 2em;
+}

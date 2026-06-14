@@ -23,6 +23,24 @@ function aurum_editor_assets(): void {
 /* Custom block styles */
 add_action( 'init', 'aurum_register_block_styles' );
 function aurum_register_block_styles(): void {
+
+	/* Buttons — make native core/button render as the gold aa-btn family, so a
+	   site owner builds CTAs with the normal Buttons block and editable labels.
+	   The actual CSS lives in assets/css/theme.css + editor.css (loaded in both
+	   contexts) so the rules apply on the front end and inside the editor. */
+	register_block_style( 'core/button', [
+		'name'  => 'aa-primary',
+		'label' => __( 'Aurum Primary', 'aurum-arcana' ),
+	] );
+	register_block_style( 'core/button', [
+		'name'  => 'aa-secondary',
+		'label' => __( 'Aurum Secondary', 'aurum-arcana' ),
+	] );
+	register_block_style( 'core/button', [
+		'name'  => 'aa-ghost',
+		'label' => __( 'Aurum Ghost', 'aurum-arcana' ),
+	] );
+
 	register_block_style( 'core/quote', [
 		'name'  => 'pull-quote',
 		'label' => __( 'Pull Quote', 'aurum-arcana' ),

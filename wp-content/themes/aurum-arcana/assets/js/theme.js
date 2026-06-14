@@ -69,7 +69,12 @@
 
   /* --- Entrance reveal animations ---------------------------- */
   if (!prefersReducedMotion && typeof IntersectionObserver !== 'undefined') {
-    const reveals = document.querySelectorAll('.aa-reveal');
+    const reveals = Array.prototype.slice.call(document.querySelectorAll('.aa-reveal'));
+
+    const reveal = (el) => {
+      el.classList.remove('is-hidden');
+      el.classList.add('is-visible');
+    };
 
     reveals.forEach((el) => el.classList.add('is-hidden'));
 
@@ -77,8 +82,7 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.remove('is-hidden');
-            entry.target.classList.add('is-visible');
+            reveal(entry.target);
             observer.unobserve(entry.target);
           }
         });
@@ -87,6 +91,19 @@
     );
 
     reveals.forEach((el) => observer.observe(el));
+
+    /* Fail-safe: a scroll-triggered reveal must never permanently hide content.
+       In environments that never scroll or never fire the observer (headless
+       renderers, crawlers, background tabs), force-reveal anything still hidden
+       once the page has settled, so the default state is always visible. */
+    const failSafe = () => reveals.forEach((el) => {
+      if (el.classList.contains('is-hidden')) reveal(el);
+    });
+    if (document.readyState === 'complete') {
+      window.setTimeout(failSafe, 1200);
+    } else {
+      window.addEventListener('load', () => window.setTimeout(failSafe, 1200));
+    }
   }
 
   /* --- Category chip filtering (archive) --------------------- */

@@ -36,7 +36,7 @@
 				<div class="bm-footer__col-title"><?php esc_html_e( 'Studio', 'body-and-mind' ); ?></div>
 				<a class="bm-footer__link" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Über mich', 'body-and-mind' ); ?></a>
 				<a class="bm-footer__link" href="<?php echo esc_url( home_url( '/stundenplan/' ) ); ?>"><?php esc_html_e( 'Stundenplan', 'body-and-mind' ); ?></a>
-				<a class="bm-footer__link" href="<?php echo esc_url( home_url( '/' ) ); ?>#preise"><?php esc_html_e( 'Preise', 'body-and-mind' ); ?></a>
+				<a class="bm-footer__link" href="<?php echo esc_url( home_url( '/preise/' ) ); ?>"><?php esc_html_e( 'Preise', 'body-and-mind' ); ?></a>
 				<a class="bm-footer__link" href="<?php echo esc_url( home_url( '/magazin/' ) ); ?>"><?php esc_html_e( 'Magazin', 'body-and-mind' ); ?></a>
 			</div>
 

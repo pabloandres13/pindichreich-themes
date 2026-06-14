@@ -42,7 +42,7 @@ $is_contact = ( $slug === 'contact' );
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php if ( get_the_content() ) : ?>
 			<div class="aa-container" style="padding-block:var(--space-8);">
-				<div class="entry-content" style="max-width:var(--measure);margin:0 auto;font-family:var(--font-body);font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-secondary);">
+				<div class="entry-content">
 					<?php the_content(); ?>
 				</div>
 			</div>
@@ -135,7 +135,7 @@ $is_contact = ( $slug === 'contact' );
 		<h1><?php the_title(); ?></h1>
 	</div>
 	<div class="aa-container" style="padding-block:var(--space-8);max-width:720px;">
-		<div class="entry-content" style="font-family:var(--font-body);font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-secondary);">
+		<div class="entry-content">
 			<?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
 		</div>
 	</div>
@@ -146,7 +146,7 @@ $is_contact = ( $slug === 'contact' );
 		<h1><?php the_title(); ?></h1>
 	</div>
 	<div class="aa-container" style="padding-block:var(--space-8);">
-		<div class="entry-content" style="max-width:var(--measure);margin:0 auto;font-family:var(--font-body);font-size:var(--text-md);line-height:var(--leading-relaxed);color:var(--text-secondary);">
+		<div class="entry-content">
 			<?php while ( have_posts() ) : the_post(); the_content(); endwhile; ?>
 		</div>
 	</div>

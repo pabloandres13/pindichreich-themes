@@ -947,6 +947,7 @@ img { max-width: 100%; height: auto; }
 }
 .au-image-frame--blue { background: linear-gradient(135deg, var(--blue-100) 0%, var(--green-100) 100%); }
 .au-image-frame--sand { background: linear-gradient(135deg, var(--sand-100) 0%, var(--green-100) 100%); }
+.au-image-frame--square { aspect-ratio: 1 / 1; }
 .au-image-frame img {
   position: absolute;
   inset: 0;

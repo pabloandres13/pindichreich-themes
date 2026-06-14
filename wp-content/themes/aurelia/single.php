@@ -15,7 +15,7 @@ while ( have_posts() ) :
 
 	<article <?php post_class(); ?>>
 		<section class="au-section au-section--white" style="padding-bottom:var(--space-6)">
-			<div class="au-container au-container--narrow">
+			<div class="au-container">
 				<a class="au-article__back" href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ?: home_url( '/magazin/' ) ); ?>">
 					<?php echo aurelia_icon( 'arrow-left', 16 ); // phpcs:ignore ?>
 					<?php esc_html_e( 'Zurück zum Magazin', 'aurelia' ); ?>
@@ -50,7 +50,7 @@ while ( have_posts() ) :
 		</section>
 
 		<section class="au-section au-section--white" style="padding-top:var(--space-6)">
-			<div class="au-container au-container--narrow">
+			<div class="au-container">
 				<div class="au-article__content entry-content">
 					<?php the_content(); ?>
 				</div>
