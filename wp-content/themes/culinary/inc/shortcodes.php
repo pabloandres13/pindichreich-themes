@@ -32,16 +32,22 @@ function culinary_sc_recipes_grid( array $atts ): string {
 	}
 
 	$q = new WP_Query( $args );
-	if ( ! $q->have_posts() ) return '';
 
 	ob_start();
 	echo '<div class="recipe-grid">';
-	while ( $q->have_posts() ) {
-		$q->the_post();
-		get_template_part( 'template-parts/content/recipe-card' );
+	if ( $q->have_posts() ) {
+		while ( $q->have_posts() ) {
+			$q->the_post();
+			get_template_part( 'template-parts/content/recipe-card' );
+		}
+		wp_reset_postdata();
+	} else {
+		// Demo fallback so freshly-inserted patterns still look complete.
+		foreach ( array_slice( culinary_demo_recipes(), 0, absint( $atts['count'] ) ) as $r ) {
+			echo culinary_render_demo_recipe_card( $r );
+		}
 	}
 	echo '</div>';
-	wp_reset_postdata();
 	return ob_get_clean() ?: '';
 }
 add_shortcode( 'culinary_recipes_grid', 'culinary_sc_recipes_grid' );
@@ -60,10 +66,18 @@ function culinary_sc_categories( array $atts ): string {
 		'order'      => 'DESC',
 	] );
 
-	if ( empty( $cats ) ) return '';
-
 	ob_start();
 	echo '<div class="category-grid">';
+
+	if ( empty( $cats ) ) {
+		// Demo fallback so freshly-inserted patterns still look complete.
+		foreach ( array_slice( culinary_demo_categories(), 0, absint( $atts['count'] ) ) as $c ) {
+			echo culinary_render_demo_category_tile( $c );
+		}
+		echo '</div>';
+		return ob_get_clean() ?: '';
+	}
+
 	foreach ( $cats as $cat ) {
 		$cat_thumb_id = get_term_meta( $cat->term_id, 'thumbnail_id', true );
 		$cat_thumb    = $cat_thumb_id ? wp_get_attachment_image_url( $cat_thumb_id, 'medium_large' ) : '';

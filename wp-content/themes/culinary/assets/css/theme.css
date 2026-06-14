@@ -848,6 +848,84 @@ a.culinary-tag--sage:hover {
   margin-top: var(--space-2);
 }
 
+.hero-block__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ============================================================
+   HOME SECTION RHYTHM (shared by template parts + block patterns)
+   ============================================================ */
+.culinary-home-section {
+  margin-bottom: var(--space-24);
+}
+
+.culinary-home-section:last-child {
+  margin-bottom: var(--space-8);
+}
+
+/* ============================================================
+   EDITABLE HERO (group + image + native text used by the home
+   pattern). Built from plain blocks so it never trips block
+   validation; the image is a swappable core/image and the
+   scrim/overlay is supplied here in CSS.
+   ============================================================ */
+.culinary-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 520px;
+  padding: var(--space-12);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-20);
+  isolation: isolate;
+}
+
+.culinary-hero__bg {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.culinary-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.culinary-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(to top, rgba(43,38,34,0.85), rgba(43,38,34,0.15) 60%, rgba(43,38,34,0.3));
+}
+
+.culinary-hero__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 640px;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.culinary-hero .hero-block__title,
+.culinary-hero .hero-block__description { color: #fff; }
+
+.culinary-hero .hero-block__actions { margin-top: var(--space-2); }
+
 /* ============================================================
    RECIPE GRID SECTIONS
    ============================================================ */
@@ -918,6 +996,99 @@ a.culinary-tag--sage:hover {
   color: var(--text-body);
   margin: 0;
   max-width: 46ch;
+}
+
+/* Editable "Meet the cook" card — core/columns variant for the home pattern.
+   Mirrors .about-teaser visually but works with native image + text columns. */
+.culinary-meet.wp-block-columns {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  gap: 0;
+  align-items: stretch;
+}
+
+.culinary-meet .culinary-meet__media,
+.culinary-meet .culinary-meet__media .wp-block-image,
+.culinary-meet .culinary-meet__media img {
+  height: 100%;
+  margin: 0;
+}
+
+.culinary-meet .culinary-meet__media img {
+  width: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.culinary-meet .culinary-meet__body {
+  align-self: center;
+  padding: var(--space-12);
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* ============================================================
+   BUTTON BLOCK STYLES (editor parity with .btn — used in patterns)
+   ============================================================ */
+.wp-block-button.is-style-culinary-primary > .wp-block-button__link,
+.wp-block-button.is-style-culinary-secondary > .wp-block-button__link,
+.wp-block-button.is-style-culinary-ghost > .wp-block-button__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  line-height: 1;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  transition: background var(--dur-fast), border-color var(--dur-fast), transform var(--dur-fast);
+}
+
+.wp-block-button.is-style-culinary-primary > .wp-block-button__link:active,
+.wp-block-button.is-style-culinary-secondary > .wp-block-button__link:active,
+.wp-block-button.is-style-culinary-ghost > .wp-block-button__link:active {
+  transform: scale(0.97);
+}
+
+.wp-block-button.is-style-culinary-primary > .wp-block-button__link {
+  background: var(--accent);
+  color: #fff;
+}
+.wp-block-button.is-style-culinary-primary > .wp-block-button__link:hover {
+  background: var(--accent-hover);
+  color: #fff;
+}
+
+.wp-block-button.is-style-culinary-secondary > .wp-block-button__link {
+  background: transparent;
+  color: var(--accent-hover);
+  border-color: var(--border-strong);
+}
+.wp-block-button.is-style-culinary-secondary > .wp-block-button__link:hover {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+}
+
+.wp-block-button.is-style-culinary-ghost > .wp-block-button__link {
+  background: transparent;
+  color: var(--accent-hover);
+  padding-inline: 0;
+}
+.wp-block-button.is-style-culinary-ghost > .wp-block-button__link:hover {
+  color: var(--accent-active);
+}
+
+/* Large size modifier + on-image (hero) tweaks */
+.wp-block-button.culinary-btn--lg > .wp-block-button__link {
+  padding: 15px 30px;
+  font-size: var(--text-lg);
 }
 
 /* ============================================================
@@ -1549,6 +1720,10 @@ a.culinary-tag--sage:hover {
   .hero-block { min-height: 420px; }
   .hero-block__content { padding: var(--space-6); }
   .hero-block__title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+
+  .culinary-hero { min-height: 440px; padding: var(--space-6); }
+  .culinary-meet .culinary-meet__body { padding: var(--space-8); }
+  .culinary-meet .culinary-meet__media img { min-height: 260px; }
 
   .archive-header__title { font-size: var(--text-4xl); }
   .single-recipe__title { font-size: var(--text-4xl); }

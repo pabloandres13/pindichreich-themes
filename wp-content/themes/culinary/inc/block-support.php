@@ -39,6 +39,20 @@ function culinary_register_block_styles(): void {
 		'name'  => 'rounded',
 		'label' => __( 'Rounded', 'culinary' ),
 	] );
+
+	// Brand button variants (used by the home block patterns; styled in theme.css)
+	register_block_style( 'core/button', [
+		'name'  => 'culinary-primary',
+		'label' => __( 'Culinary primary', 'culinary' ),
+	] );
+	register_block_style( 'core/button', [
+		'name'  => 'culinary-secondary',
+		'label' => __( 'Culinary secondary', 'culinary' ),
+	] );
+	register_block_style( 'core/button', [
+		'name'  => 'culinary-ghost',
+		'label' => __( 'Culinary ghost link', 'culinary' ),
+	] );
 }
 add_action( 'init', 'culinary_register_block_styles' );
 

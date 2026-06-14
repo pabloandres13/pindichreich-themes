@@ -8,7 +8,7 @@ $action_url = get_theme_mod( 'culinary_newsletter_url', '#' );
 $title      = get_theme_mod( 'culinary_newsletter_title', __( 'New recipes in your inbox', 'culinary' ) );
 $body_text  = get_theme_mod( 'culinary_newsletter_body', __( 'One warm, seasonal recipe each week — plus the odd kitchen note. No spam, unsubscribe anytime.', 'culinary' ) );
 ?>
-<section id="newsletter" class="culinary-container culinary-reveal" style="margin-bottom: var(--space-8);">
+<section id="newsletter" class="culinary-container culinary-home-section culinary-reveal">
 	<div class="newsletter-band newsletter-band--<?php echo esc_attr( $tone ); ?>">
 		<div class="newsletter-band__inner">
 			<span class="newsletter-band__eyebrow"><?php esc_html_e( 'The Saturday letter', 'culinary' ); ?></span>

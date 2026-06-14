@@ -198,6 +198,89 @@ function culinary_get_recipe_time( int $post_id ): string {
 }
 
 /* ============================================================
+   Demo content — shown when a section/shortcode has no real posts
+   yet, so a freshly-inserted home pattern still looks complete.
+   Imagery: verified Unsplash food photography (placeholder).
+   ============================================================ */
+
+/**
+ * Placeholder recipe data (mirrors the Saffron & Salt design comps).
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function culinary_demo_recipes(): array {
+	$base = 'https://images.unsplash.com/';
+	$q    = '?w=800&q=80&auto=format&fit=crop';
+	return [
+		[ 'title' => 'Charred Harissa Carrots with Whipped Feta', 'cat' => 'Dinner',    'time' => '35 min',     'difficulty' => 'Easy',   'rating' => 4.8, 'img' => $base . 'photo-1512621776951-a57141f2eefd' . $q ],
+		[ 'title' => 'Olive Oil & Blood Orange Cake',             'cat' => 'Baking',    'time' => '50 min',     'difficulty' => 'Medium', 'rating' => 4.9, 'img' => $base . 'photo-1464349095431-e9a21285b5f3' . $q ],
+		[ 'title' => 'Green Shakshuka with Herbs & Feta',         'cat' => 'Breakfast', 'time' => '25 min',     'difficulty' => 'Easy',   'rating' => 4.7, 'img' => $base . 'photo-1525351484163-7529414344d8' . $q ],
+		[ 'title' => 'Lemon & Garlic Butter Orzo',                'cat' => 'Dinner',    'time' => '20 min',     'difficulty' => 'Easy',   'rating' => 4.6, 'img' => $base . 'photo-1473093295043-cdd812d0e601' . $q ],
+		[ 'title' => 'Honeyed Fig & Ricotta Tart',                'cat' => 'Desserts',  'time' => '1 hr',       'difficulty' => 'Medium', 'rating' => 4.9, 'img' => $base . 'photo-1505253716362-afaea1d3d1af' . $q ],
+		[ 'title' => 'Herbed Freekeh Bowl with Tahini',           'cat' => 'Lunch',     'time' => '30 min',     'difficulty' => 'Easy',   'rating' => 4.5, 'img' => $base . 'photo-1546069901-ba9599a7e63c' . $q ],
+	];
+}
+
+/**
+ * Render a demo recipe card matching the real .recipe-card markup.
+ *
+ * @param array<string,mixed> $r Recipe row from culinary_demo_recipes().
+ */
+function culinary_render_demo_recipe_card( array $r ): string {
+	ob_start();
+	?>
+	<article class="recipe-card culinary-reveal">
+		<span class="recipe-card__image-wrap">
+			<img src="<?php echo esc_url( $r['img'] ); ?>" alt="<?php echo esc_attr( $r['title'] ); ?>" loading="lazy">
+			<span class="recipe-card__category">
+				<span class="culinary-tag culinary-tag--accent culinary-tag--sm"><?php echo esc_html( $r['cat'] ); ?></span>
+			</span>
+		</span>
+		<div class="recipe-card__body">
+			<h3 class="recipe-card__title"><?php echo esc_html( $r['title'] ); ?></h3>
+			<div class="recipe-card__meta">
+				<span class="recipe-card__meta-item"><?php echo culinary_icon( 'clock', 15 ); ?><?php echo esc_html( $r['time'] ); ?></span>
+				<span class="recipe-card__meta-item"><?php echo culinary_icon( 'gauge', 15 ); ?><?php echo esc_html( $r['difficulty'] ); ?></span>
+			</div>
+			<div class="recipe-card__rating"><?php echo culinary_star_rating( (float) $r['rating'], 15, true ); ?></div>
+		</div>
+	</article>
+	<?php
+	return ob_get_clean() ?: '';
+}
+
+/**
+ * Placeholder category tiles.
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function culinary_demo_categories(): array {
+	$base = 'https://images.unsplash.com/';
+	$q    = '?w=800&q=80&auto=format&fit=crop';
+	return [
+		[ 'name' => 'Breakfast',         'count' => 42, 'img' => $base . 'photo-1525351484163-7529414344d8' . $q ],
+		[ 'name' => 'Weeknight Dinners', 'count' => 86, 'img' => $base . 'photo-1473093295043-cdd812d0e601' . $q ],
+		[ 'name' => 'Desserts',          'count' => 38, 'img' => $base . 'photo-1505253716362-afaea1d3d1af' . $q ],
+		[ 'name' => 'Vegetarian',        'count' => 57, 'img' => $base . 'photo-1546069901-ba9599a7e63c' . $q ],
+	];
+}
+
+/**
+ * Render a demo category tile matching the real .category-tile markup.
+ *
+ * @param array<string,mixed> $c Category row from culinary_demo_categories().
+ */
+function culinary_render_demo_category_tile( array $c ): string {
+	return sprintf(
+		'<span class="category-tile"><img src="%s" alt="%s" class="category-tile__image" loading="lazy"><span class="category-tile__scrim"></span><span class="category-tile__label"><span class="category-tile__name">%s</span><span class="category-tile__count">%s</span></span></span>',
+		esc_url( $c['img'] ),
+		esc_attr( $c['name'] ),
+		esc_html( $c['name'] ),
+		sprintf( esc_html( _n( '%d recipe', '%d recipes', (int) $c['count'], 'culinary' ) ), esc_html( (int) $c['count'] ) )
+	);
+}
+
+/* ============================================================
    Include modules
    ============================================================ */
 require get_stylesheet_directory() . '/inc/customizer.php';

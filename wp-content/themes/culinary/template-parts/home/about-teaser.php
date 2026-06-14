@@ -8,7 +8,7 @@ $author_photo = get_theme_mod( 'culinary_author_photo', '' );
 $about_page   = get_page_by_path( 'about' );
 $about_url    = $about_page ? get_permalink( $about_page ) : home_url( '/about/' );
 ?>
-<section class="culinary-container" style="margin-bottom: var(--space-24);">
+<section class="culinary-container culinary-home-section">
 	<div class="about-teaser culinary-reveal">
 		<?php if ( $author_photo ) : ?>
 			<img

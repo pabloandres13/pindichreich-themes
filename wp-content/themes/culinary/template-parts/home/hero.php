@@ -19,6 +19,8 @@ $category    = get_the_category( $hero->ID );
 $cat_name    = $category ? $category[0]->name : '';
 $thumb_url   = get_the_post_thumbnail_url( $hero->ID, 'full' );
 $recipe_time = culinary_get_recipe_time( $hero->ID );
+$rating      = (float) get_post_meta( $hero->ID, '_recipe_rating', true );
+$reviews     = (int) get_post_meta( $hero->ID, '_recipe_reviews', true );
 ?>
 <section class="hero-section culinary-container culinary-reveal">
 	<div class="hero-block">
@@ -56,6 +58,20 @@ $recipe_time = culinary_get_recipe_time( $hero->ID );
 					<?php echo culinary_icon( 'arrow-right', 18 ); ?>
 					<?php esc_html_e( 'View recipe', 'culinary' ); ?>
 				</a>
+				<?php if ( $rating > 0 ) : ?>
+					<span class="hero-block__rating">
+						<?php echo culinary_star_rating( $rating, 18 ); ?>
+						<span>
+							<?php
+							echo esc_html( number_format( $rating, 1 ) );
+							if ( $reviews > 0 ) {
+								/* translators: %d review count */
+								echo ' &middot; ' . esc_html( sprintf( _n( '%d review', '%d reviews', $reviews, 'culinary' ), $reviews ) );
+							}
+							?>
+						</span>
+					</span>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

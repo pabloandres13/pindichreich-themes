@@ -10,7 +10,7 @@ $latest = new WP_Query( [
 
 if ( ! $latest->have_posts() ) return;
 ?>
-<section class="culinary-container" style="margin-bottom: var(--space-24);">
+<section class="culinary-container culinary-home-section">
 	<div class="section-head culinary-reveal">
 		<div>
 			<div class="section-head__eyebrow"><?php esc_html_e( 'Fresh from the kitchen', 'culinary' ); ?></div>
