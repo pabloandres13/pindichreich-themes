@@ -1,0 +1,243 @@
+/* ============================================================
+   Bastelliebe — Design Tokens
+   Warm cream/white canvas, coral accent, four color-coded craft
+   categories. Self-hosted fonts (no external/Google requests):
+   Fredoka (display), Nunito Sans (body), Caveat (handwritten accent).
+   ============================================================ */
+
+/* ---- Fredoka — variable display font (300–700) ---- */
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/fredoka-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Fredoka';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../fonts/fredoka-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- Nunito Sans — variable body font (400–800, normal + italic) ---- */
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/nunito-sans-normal-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/nunito-sans-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/nunito-sans-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: italic;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../fonts/nunito-sans-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ---- Caveat — variable handwritten accent (400–700) ---- */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/caveat-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/caveat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* ---- Base neutrals (warm) ---- */
+  --cream-50:  #FFFDF9;
+  --cream-100: #FBF7F0;   /* page canvas */
+  --cream-200: #F4ECDD;   /* sunken / alt section */
+  --cream-300: #ECE1CE;
+  --white:     #FFFFFF;
+
+  /* ---- Ink / charcoal text ---- */
+  --ink-900: #2C2A27;     /* primary text */
+  --ink-700: #4A463F;     /* strong secondary */
+  --ink-600: #5A554C;
+  --ink-500: #6B645C;     /* muted text */
+  --ink-400: #8A8276;     /* faint / disabled label */
+  --ink-300: #B7AE9F;
+
+  /* ---- Borders ---- */
+  --border-100: #F0E8DA;
+  --border-200: #E7DECF;
+  --border-300: #DBCFB9;
+
+  /* ---- Brand: Coral (primary accent) ---- */
+  --coral-50:  #FCEDE8;
+  --coral-100: #F9DACE;
+  --coral-200: #F4B9A4;
+  --coral-300: #EF9479;
+  --coral-400: #EC7B5C;
+  --coral-500: #E8654A;   /* brand / CTA */
+  --coral-600: #D14E33;   /* hover */
+  --coral-700: #B23E27;   /* active / text-on-light */
+  --coral-800: #8C301E;
+
+  /* ---- Category color-coding ---- */
+  --cat-papier:      #E8654A;
+  --cat-papier-soft: #FCEDE8;
+  --cat-papier-ink:  #B23E27;
+
+  --cat-heimwerken:      #E0A82E;
+  --cat-heimwerken-soft: #FBF1D8;
+  --cat-heimwerken-ink:  #8F6810;
+
+  --cat-wohndeko:      #2FA6A0;
+  --cat-wohndeko-soft: #DDF1F0;
+  --cat-wohndeko-ink:  #1C726E;
+
+  --cat-kinder:      #C75B9E;
+  --cat-kinder-soft: #F8E4F0;
+  --cat-kinder-ink:  #8E3C6F;
+
+  /* ---- Semantic status ---- */
+  --success:      #5E9E5A;
+  --warning:      #E0A82E;
+  --danger:       #D14E33;
+  --info:         #2FA6A0;
+
+  /* ---- Semantic aliases ---- */
+  --bg-page:        var(--cream-100);
+  --bg-alt:         var(--cream-200);
+  --surface-card:   var(--white);
+  --surface-ink:    var(--ink-900);
+
+  --text-body:    var(--ink-900);
+  --text-strong:  var(--ink-900);
+  --text-muted:   var(--ink-500);
+  --text-faint:   var(--ink-400);
+  --text-on-accent: #FFFFFF;
+  --text-on-ink:    #F5EFE4;
+  --text-on-ink-muted: #C3BAA9;
+
+  --accent:        var(--coral-500);
+  --accent-hover:  var(--coral-600);
+  --accent-active: var(--coral-700);
+  --accent-soft:   var(--coral-50);
+  --accent-ink:    var(--coral-700);
+  --accent-text:   var(--coral-700);
+  --link:          var(--coral-700);
+  --link-hover:    var(--coral-800);
+
+  --border-soft:   var(--border-200);
+  --border-hair:   var(--border-100);
+  --border-strong: var(--border-300);
+  --focus-ring:    var(--coral-500);
+
+  /* ---- Fonts ---- */
+  --font-display: 'Fredoka', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body:    'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-hand:    'Caveat', 'Segoe Print', cursive;
+
+  /* ---- Type scale ---- */
+  --text-xs:   13px;
+  --text-sm:   14px;
+  --text-base: 16px;
+  --text-md:   18px;
+  --text-lg:   20px;
+  --text-xl:   24px;
+  --text-2xl:  30px;
+  --text-3xl:  38px;
+  --text-4xl:  48px;
+  --text-5xl:  60px;
+
+  /* ---- Weights ---- */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+  --fw-extra:    800;
+
+  /* ---- Line heights ---- */
+  --leading-tight:  1.12;
+  --leading-snug:   1.28;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.7;
+
+  /* ---- Letter spacing ---- */
+  --tracking-tight:  -0.02em;
+  --tracking-label:  0.08em;
+
+  /* ---- Spacing (8px base) ---- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ---- Radii ---- */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-2xl:  36px;
+  --radius-pill: 999px;
+
+  /* ---- Soft shadows (warm, ink-tinted) ---- */
+  --shadow-xs: 0 1px 2px rgba(44, 42, 39, 0.06);
+  --shadow-sm: 0 2px 8px rgba(44, 42, 39, 0.07);
+  --shadow-md: 0 8px 22px rgba(44, 42, 39, 0.09);
+  --shadow-lg: 0 18px 44px rgba(44, 42, 39, 0.12);
+  --shadow-card-hover: 0 14px 34px rgba(44, 42, 39, 0.14);
+  --shadow-focus: 0 0 0 3px rgba(232, 101, 74, 0.35);
+
+  /* ---- Layout ---- */
+  --container-sm:  680px;
+  --container-md:  960px;
+  --container-lg:  1200px;
+  --gutter:        24px;
+
+  /* ---- Motion ---- */
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft:  cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:   140ms;
+  --dur-base:   220ms;
+  --dur-slow:   360ms;
+
+  --header-h:   76px;
+
+  /* ---- Paper texture (subtle handmade grain) ---- */
+  --paper-texture:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}

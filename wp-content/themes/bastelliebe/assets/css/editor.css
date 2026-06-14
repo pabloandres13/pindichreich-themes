@@ -1,0 +1,28 @@
+/* ============================================================
+   Bastelliebe — Block editor canvas styles
+   Mirrors the front-end so patterns preview accurately in the editor.
+   ============================================================ */
+.editor-styles-wrapper {
+  background-color: var(--bg-page);
+  font-family: var(--font-body);
+  color: var(--text-body);
+}
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink-900);
+}
+.editor-styles-wrapper .bl-hand,
+.editor-styles-wrapper .bl-hero__tagline,
+.editor-styles-wrapper .bl-section-head__eyebrow,
+.editor-styles-wrapper .bl-newsletter__eyebrow,
+.editor-styles-wrapper .bl-about__eyebrow {
+  font-family: var(--font-hand);
+}
+/* Give grouped sections breathing room inside the editor */
+.editor-styles-wrapper .bl-section { padding-block: 40px; }
+.editor-styles-wrapper .bl-reveal { opacity: 1; transform: none; }

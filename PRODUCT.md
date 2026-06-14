@@ -8,6 +8,7 @@ A monorepo of WordPress Astra child themes. Each theme has its own product and d
 |---------------|----------------------------------------------------------------|-----------------------------------|
 | aurelia       | [docs/aurelia/PRODUCT.md](docs/aurelia/PRODUCT.md)             | `wp-content/themes/aurelia/`      |
 | aurum-arcana  | [docs/aurum-arcana/PRODUCT.md](docs/aurum-arcana/PRODUCT.md)   | `wp-content/themes/aurum-arcana/` |
+| bastelliebe   | [docs/bastelliebe/PRODUCT.md](docs/bastelliebe/PRODUCT.md)     | `wp-content/themes/bastelliebe/`  |
 | body-and-mind | [docs/body-and-mind/PRODUCT.md](docs/body-and-mind/PRODUCT.md) | `wp-content/themes/body-and-mind/` |
 | celestine     | [docs/celestine/PRODUCT.md](docs/celestine/PRODUCT.md)         | `wp-content/themes/celestine/`    |
 | culinary      | [docs/culinary/PRODUCT.md](docs/culinary/PRODUCT.md)           | `wp-content/themes/culinary/`     |

@@ -14,7 +14,7 @@ A collection of WordPress themes covering a range of lifestyle and interest topi
 | `pindichreich-mamasglueck`  | Mamas & Parenting       | ✔      |
 | `pindichreich-coaching`     | Coaching & Business     | ✔      |
 | `pindichreich-finance`      | Finance                 |        |
-| `pindichreich-diy`          | DIY and creative        |        |
+| `pindichreich-diy`          | DIY and creative        | ✔      |
 | `pindichreich-garten`       | Garten and Plants       |        |
 | `pindichreich-nutrition`    | Nutrition               |        |
 | `pindichreich-minimalismus` | Minimalismus and order  |        |
